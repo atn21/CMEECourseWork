@@ -1,0 +1,11 @@
+#!/bin/bash
+# Author: An an.nguyen21@imperial.ac.uk
+# Script: UnixPrac1.txt
+# Desc: Bash commands for FASTA files
+# Date: Oct 2021
+
+#1 wc E.coli.fasta 407228326.fasta 407228412.fasta
+#2 sed 1d E.coli.fasta
+#3 wc -m E.coli.fasta 
+#4 grep -i -n atgc E.coli.fasta
+#5 grep -o  
