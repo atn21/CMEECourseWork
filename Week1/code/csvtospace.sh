@@ -9,10 +9,10 @@
 
 if [ ! -z "$1" ] 
 then echo "Creating a space delimited version of $1 ..."
-    cat ../data/$1.csv | tr -s "," " " >> $1.txt
+    cat $1.csv | tr -s "," " " >> $1.txt
     mv "$1.txt" ../results
     echo "Finish!"
 else 
-    echo "Null input"
+    echo -e "Null input\nPlease specify a csv file"
 fi
 exit
