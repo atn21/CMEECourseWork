@@ -1,1 +1,5 @@
-My CMEE Coursework Repository
+# CMEE Coursework Repository
+Contains all coursework files.
+
+## Week 1
+
