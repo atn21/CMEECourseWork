@@ -19,7 +19,7 @@ First scrip which prints "This is a shell script!".
 
 Substitutes tabs in a given file with commas and then output is saved as a .csv file.
 
-### 4. variables
+### 4. variables.sh
 
 Values (either a string or integer) are assigned to variables. Users can enter new values to change the variable. 
 
