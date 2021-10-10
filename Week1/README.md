@@ -1,12 +1,12 @@
 # Week 1 Coursework 
 
 ## Content
-* code: contains the bash scripts of this week.
-* data: contains the data for the scripts.
-* results: contains the output of the scripts.
-* sandbox: contains miscellaneous files.
+* code: contains the bash scripts of this week. Find detailed content list below. 
+* data: contains the data for the scripts. Find detailed content list below.
+* results: contains the output of the scripts. Currently empty. 
+* sandbox: contains miscellaneous files generated when testing the scripts. Nothing important.
 
-## List of scripts in code directory
+## Files in code directory
 ### 1. UnixPrac1
 
 .txt file containing bash commands to perform on .fasta files.
@@ -54,3 +54,19 @@ Contains BibTex reference for the LaTex document in FirstExample.tex.
 ### 12. CompileLaTeX.sh
 
 Combines a LaTeX .tex file with a BibTeX file to create a pdf containing the first document and its citation. 
+
+## Files in data directory
+
+### 4 .csv files: 
+* 1800.csv
+* 1801.csv
+* 1802.csv
+* 1803.csv
+
+### 3 .fasta files:
+* 407228326.fasta
+* 407228412.fasta
+* E.coli.fasta
+
+### 1 .txt file:
+* spawannxs.txt
