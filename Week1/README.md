@@ -70,3 +70,6 @@ Combines a LaTeX .tex file with a BibTeX file to create a pdf containing the fir
 
 ### 1 .txt file:
 * spawannxs.txt
+
+### 1 .tif file:
+* example1.tif
