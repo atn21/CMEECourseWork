@@ -4,8 +4,17 @@
 # Desc: Bash commands for FASTA files
 # Date: Oct 2021
 
-#1 wc -l `find . -name "*.fasta"`
-#2 sed 1d `find . -name "E.coli.fasta"` 
-#3 wc -m `find . -name "E.coli.fasta"` 
-#4 sed 1d `find . -name "E.coli.fasta"` | tr -d "\n" | grep -o "ATGC" | wc -l 
-#5 echo "scale=3;" $(grep -o [A,T] `find . -name "E.coli.fasta"`| wc -c)/$(grep -o [G,C] `find . -name "E.coli.fasta"`| wc -c) | bc -l
+#1 count number of lines of each .fasta file
+wc -l ../data/*.fasta
+
+#2 print everything starting from the second line for E.coli.fasta
+sed 1d ../data/E.coli.fasta
+
+#3 count the sequence length of the E.coli genome 
+sed 1d ../data/E.coli.fasta | tr -d "\n" | wc -m
+
+#4 count the number of "ATGC" sequence in E.coli.fasta
+sed 1d ../data/E.coli.fasta | tr -d "\n" | grep -o "ATGC" | wc -l 
+
+#5 compute AT/GC ratio
+echo "scale=3;" $(grep -o [A,T] `find . -name "E.coli.fasta"`| wc -c)/$(grep -o [G,C] `find . -name "E.coli.fasta"`| wc -c) | bc -l
