@@ -1,0 +1,6 @@
+#Ignore everything
+*
+#Keep the directory
+!*/
+#Keep gitignore file
+!.gitignore
