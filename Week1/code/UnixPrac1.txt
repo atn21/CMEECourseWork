@@ -17,4 +17,4 @@ sed 1d ../data/E.coli.fasta | tr -d "\n" | wc -m
 sed 1d ../data/E.coli.fasta | tr -d "\n" | grep -o "ATGC" | wc -l 
 
 #5 compute AT/GC ratio
-echo "scale=3;" $(grep -o [A,T] `find . -name "E.coli.fasta"`| wc -c)/$(grep -o [G,C] `find . -name "E.coli.fasta"`| wc -c) | bc -l
+echo "scale=3;" $(grep -o [A,T] ../data/E.coli.fasta | wc -c)/$(grep -o [G,C] ../data/E.coli.fasta | wc -c) | bc -l
