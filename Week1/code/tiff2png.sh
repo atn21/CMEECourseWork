@@ -19,7 +19,7 @@ else
             echo "Converting $f"; 
             #convert .tif to .png and replace .tif extension with .png
             convert "$f"  "$(basename "$f" .tif).png"; 
-    done
+        done
 fi
 
 #move finished .png to results/
