@@ -6,3 +6,6 @@ Contains all coursework files.
 * Shell scripting
 * Scientific documents with LaTeX
 * Version control with Git
+
+## Week 2
+* Biological Computing in Python I
