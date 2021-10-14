@@ -14,7 +14,7 @@ then
     exit
 
 else
-    for f in *.tif; 
+    for f in ../data/*.tif; 
         do  
             echo "Converting $f"; 
             #convert .tif to .png and replace .tif extension with .png
