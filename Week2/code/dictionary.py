@@ -12,7 +12,17 @@ taxa = [ ('Myotis lucifugus','Chiroptera'),
 
 # Write a short python script to populate a dictionary called taxa_dic 
 # derived from  taxa so that it maps order names to sets of taxa.
-# 
+
+taxa_dic = {}
+for n,t in taxa:
+        if t in taxa_dic:
+                taxa_dic[t].append(n)
+        else:
+                taxa_dic[t] = [n]
+print(taxa_dic)
+
+
+
 # An example output is:
 #  
 # 'Chiroptera' : set(['Myotis lucifugus']) ... etc.
