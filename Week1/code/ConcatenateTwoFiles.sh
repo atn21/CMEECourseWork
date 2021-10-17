@@ -12,7 +12,6 @@ then
     exit 0 
 else
     #combine two files in data/ into a new file named MERGED
-    touch merged 
     cat ../data/$1 > MERGED
     cat ../data/$2 >> MERGED
 
