@@ -13,15 +13,15 @@ then
 fi
 
 #combine two files into a new file named plzwork
-touch plzwork 
-cat $1 > plzwork
-cat $2 >> plzwork
+touch merged 
+cat $1 > MERGED
+cat $2 >> MERGED
 
 #print content of merged file
-echo "Merged file saved as plzwork in results/ and is shown below"
-cat plzwork
+echo "Merged file saved as MERGED in results/ and is shown below"
+cat MERGED
 
 #save the merged file in results/
-mv plzwork ../results
+mv MERGED ../results
 
 exit
