@@ -11,17 +11,17 @@ then
     echo 'Missing inputs please enter 2 file names'
     exit 0 
 else
-    #combine two files into a new file named plzwork
+    #combine two files in data/ into a new file named MERGED
     touch merged 
-    cat $1 > MERGED
-    cat $2 >> MERGED
-
-    #print content of merged file
-    echo "Merged file saved as MERGED in results/ and is shown below"
-    cat MERGED
+    cat ../data/$1 > MERGED
+    cat ../data/$2 >> MERGED
 
     #save the merged file in results/
     mv MERGED ../results
+
+    #print content of merged file
+    echo "Merged file saved as MERGED in results/ and is shown below"
+    cat ../results/MERGED
 
 fi
 

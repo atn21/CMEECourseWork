@@ -15,7 +15,7 @@ then echo "Creating a space delimited version of $1 ..."
     fbname=$(basename "$1" .csv)
 
     #substitute commas in the files with space
-    cat $1 | tr -s "," " " >> $fbname.txt
+    cat ../data/$1 | tr -s "," " " >> $fbname.txt
 
     #move finished file to results/
     mv "$fbname.txt" ../results

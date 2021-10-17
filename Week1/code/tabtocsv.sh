@@ -15,7 +15,7 @@ then echo "Creating a comma delimited version of $1 ..."
     fbname=$(basename "$1" .txt)
     
     #substitute the tabs in the files with commas
-    cat $1 | tr -s "," " " >> $fbname.csv
+    cat ../data/$1 | tr -s "," " " >> $fbname.csv
 
     #move finished file to results/
     mv "$fbname.csv" ../results
