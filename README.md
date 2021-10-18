@@ -9,3 +9,6 @@ Contains all coursework files.
 
 ## Week 2
 * Biological Computing in Python I
+
+## Week 3
+* Biological Computing in R
