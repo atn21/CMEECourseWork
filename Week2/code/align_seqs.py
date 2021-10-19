@@ -1,22 +1,23 @@
-dna_name = input("Enter file name: ")
-with open(dna_name, "r") as myfile:
-    for line in myfile:
+import sys
+import csv
 
-# Two example sequences to match
-seq2 = "ATCGCCGGATTACGGG"
-seq1 = "CAATTCGGAT"
+read_seq = []
+with open("../data/align_seqs_data.csv", "r") as myfile:
+    process_csv = csv.reader(myfile)
+    for row in process_csv:
+        read_seq.append(row[0])
 
 # Assign the longer sequence s1, and the shorter to s2
 # l1 is length of the longest, l2 that of the shortest
 
-l1 = len(seq1)
-l2 = len(seq2)
+l1 = len(read_seq[0])
+l2 = len(read_seq[1])
 if l1 >= l2:
-    s1 = seq1
-    s2 = seq2
+    s1 = read_seq[0]
+    s2 = read_seq[1]
 else:
-    s1 = seq2
-    s2 = seq1
+    s1 = read_seq[1]
+    s2 = read_seq[0]
     l1, l2 = l2, l1 # swap the two lengths
 
 # A function that computes a score by returning the number of matches starting
@@ -58,3 +59,7 @@ for i in range(l1): # Note that you just take the last alignment with the highes
 print(my_best_align)
 print(s1)
 print("Best score:", my_best_score)
+
+with open("../results/align_seqs_results.txt", "w") as done:
+    done.write("Best score: " + str(my_best_score) + "\n" + 
+    "Best align: " + str(my_best_align))
