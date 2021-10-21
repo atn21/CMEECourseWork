@@ -1,0 +1,700 @@
+Starting code feedback for An, Week1
+
+Current Points = 100
+
+Note that: 
+(1) Major sections begin with a double "====" line 
+(2) Subsections begin with a single "====" line 
+(3) Code output or text file content are printed within single "*****" lines 
+
+======================================================================
+======================================================================
+Your Git repo size this week is about 1.90 MiB on disk 
+
+PART 1: Checking project workflow...
+
+Found the following directories in parent directory: .git, Week1, Week3, Feedback, Week2
+
+Found the following files in parent directory: README.md, .gitignore
+
+Checking for key files in parent directory...
+
+Found .gitignore in parent directory, great! 
+
+Printing contents of .gitignore:
+
+**********************************************************************
+#Ignore these files:
+*~ 
+*.tmp
+__pycache__/
+
+**********************************************************************
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+
+**********************************************************************
+# CMEE Coursework Repository
+Contains all coursework files.
+
+## Week 1
+* Introduction to Unix and Linux
+* Shell scripting
+* Scientific documents with LaTeX
+* Version control with Git
+
+## Week 2
+* Biological Computing in Python I
+
+## Week 3
+* Biological Computing in R
+
+**********************************************************************
+
+======================================================================
+Looking for the weekly directories...
+
+Found 3 weekly directories: Week1, Week2, Week3
+
+The Week1 directory will be assessed 
+
+======================================================================
+======================================================================
+PART 2: Checking weekly code and workflow...
+
+======================================================================
+Assessing WEEK1...
+
+Found the following directories: code, sandbox, results, data
+
+Found the following files: README.md
+
+Checking for readme file in weekly directory...
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+
+**********************************************************************
+# Week 1 Coursework 
+
+## Content
+* code: contains the bash scripts of this week. Find detailed content list below. 
+* data: contains the data for the scripts. Find detailed content list below.
+* results: contains the output of the scripts. Currently empty. 
+* sandbox: contains miscellaneous files generated when testing the scripts. Nothing important.
+
+## Files in code directory
+### 1. UnixPrac1
+
+.txt file containing bash commands to perform on .fasta files.
+
+### 2. boilerplate.sh
+
+First scrip which prints "This is a shell script!".
+
+### 3. tabtocsv.sh
+
+Substitutes tabs in a given file with commas and then output is saved as a .csv file.
+
+### 4. variables.sh
+
+Values (either a string or integer) are assigned to variables. Users can enter new values to change the variable. 
+
+### 5. MyExampleScript.sh
+
+Demonstrates two different ways of assigning variables.
+
+### 6. CountLines.sh
+
+Counts how many lines are in a file.
+
+### 7. ConcatenateTwoFiles.sh
+
+Combines two files into one single file.
+
+### 8. tiff2png.sh
+
+Converts a .tiff to a .png.
+
+### 9. csvtospace.sh
+
+Substitutes commas in a given file with space and then output is saved as a .txt file.
+
+### 10. FirstExample.tex
+
+Contains LaTeX code to draft a simple LaTex document.
+
+### 11. FirstBiblio.bib
+
+Contains BibTex reference for the LaTex document in FirstExample.tex.
+
+### 12. CompileLaTeX.sh
+
+Combines a LaTeX .tex file with a BibTeX file to create a pdf containing the first document and its citation. 
+
+## Files in data directory
+
+### 4 .csv files: 
+* 1800.csv
+* 1801.csv
+* 1802.csv
+* 1803.csv
+
+### 3 .fasta files:
+* 407228326.fasta
+* 407228412.fasta
+* E.coli.fasta
+
+### 1 .txt file:
+* spawannxs.txt
+
+### 1 .tif file:
+* example1.tif
+
+**********************************************************************
+
+Results directory is empty - good! 
+
+Found 12 code files: tiff2png.sh, CountLines.sh, FirstBiblio.bib, tabtocsv.sh, FirstExample.tex, boilerplate.sh, csvtospace.sh, variable.sh, ConcatenateTwoFiles.sh, UnixPrac1.txt, CompileLaTeX.sh, MyExampleScript.sh
+
+======================================================================
+Testing script/code files...
+
+======================================================================
+Inspecting script file tiff2png.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/bash
+# Author: An an.nguyen21@imperial.ac.uk
+# Script: tiff2png.sh
+# Description: convert .tif into .png
+#
+# Saves the output into a .png file
+# Arguments: 1 (input .tif to get .png file)
+# Date: Oct 2021
+
+#check if a .tif file has been provided
+if [ -z "$1" ]
+then 
+    echo "Please enter a .tif file"
+    exit
+
+else
+    for f in ../data/*.tif; 
+        do  
+            echo "Converting $f"; 
+            #convert .tif to .png and replace .tif extension with .png
+            convert "$f"  "$(basename "$f" .tif).png"; 
+        done
+fi
+
+#move finished .png to results/
+mv "$(basename "$f" .tif).png" ../results
+exit
+**********************************************************************
+
+Testing tiff2png.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Please enter a .tif file
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00282s
+
+======================================================================
+Inspecting script file CountLines.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/bash
+# Author: An an.nguyen21@imperial.ac.uk
+# Script: CountLines.sh
+# Desc: count number of lines in a file
+
+# Arguments: 1 (input 1 file for counting lines)
+# Date: Oct 2021
+
+#check if there is a valid input
+if [ -z "$1" ] 
+then 
+    echo 'Missing inputs please enter a file'
+    exit 0 
+fi
+
+#count number of lines
+NumLines=`wc -l < $1`
+echo "The file $1 has $NumLines lines"
+echo
+**********************************************************************
+
+Testing CountLines.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Missing inputs please enter a file
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00411s
+
+======================================================================
+Inspecting script file FirstBiblio.bib...
+
+File contents are:
+
+**********************************************************************
+@article{verhulst1838notice,
+  title={Notice sur la loi que la population suit dans son accroissement},
+  author={Verhulst, Pierre-Fran{\c{c}}ois},
+  journal={Corresp. Math. Phys.},
+  volume={10},
+  pages={113--126},
+  year={1838}
+}
+**********************************************************************
+
+Testing FirstBiblio.bib...
+
+======================================================================
+Inspecting script file tabtocsv.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/bash
+# Author: An an.nguyen21@imperial.ac.uk
+# Script: tabtocsv.sh
+# Description: substitute the tabs in the files with commas
+#
+# Saves the output into a .csv file
+# Arguments: 1 (input .txt to obtain comma delimited output)
+# Date: Oct 2021
+
+#check if there is valid input. if yes, convert .txt to .csv
+if [ ! -z "$1" ] 
+then echo "Creating a comma delimited version of $1 ..."
+    
+    #remove .txt extension so final file is name.csv
+    fbname=$(basename "$1" .txt)
+    
+    #substitute the tabs in the files with commas
+    cat ../data/$1 | tr -s "," " " >> $fbname.csv
+
+    #move finished file to results/
+    mv "$fbname.csv" ../results
+    echo "Finish!"
+
+#exit programme if there is no .txt file    
+else 
+    echo -e "Null input\nPlease specify a .txt file"
+fi
+exit
+
+**********************************************************************
+
+Testing tabtocsv.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Null input
+Please specify a .txt file
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00388s
+
+======================================================================
+Inspecting script file FirstExample.tex...
+
+File contents are:
+
+**********************************************************************
+\documentclass[12pt]{article}
+
+\title{First foray into LaTeX}
+
+\author{An Nguyen}
+
+\date{October 2021}
+
+\begin{document}
+  \maketitle
+  
+  \begin{abstract}
+    This paper analyzes a seminal equation in population biology.
+  \end{abstract}
+  
+  \section{Introduction}
+    I am intro. 
+  
+  \section{Materials \& Methods}
+  
+  A foundational equation of population biology is:
+  
+  \begin{equation}
+    \frac{dN}{dt} = r N (1 - \frac{N}{K})
+  \end{equation}
+  
+  It was first proposed by Verhulst in 1838 \cite{verhulst1838notice}.
+  
+  \bibliographystyle{plain}
+  
+  \bibliography{FirstBiblio}
+
+\end{document}
+
+**********************************************************************
+
+Testing FirstExample.tex...
+
+======================================================================
+Inspecting script file boilerplate.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/bash
+# Author: An an.nguyen21@imperial.ac.uk
+# Script: boilerplate.sh
+# Desc: simple boilerplate for shell scripts
+# Arguments: none
+# Date: Oct 2021
+
+echo -e "\nThis is a shell script! \n" #what does -e do?
+
+#exit
+**********************************************************************
+
+Testing boilerplate.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+
+This is a shell script! 
+
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00442s
+
+======================================================================
+Inspecting script file csvtospace.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/bash
+# Author: An an.nguyen21@imperial.ac.uk
+# Script: csvtospace.sh
+# Desc: substitute commas in the files with space
+
+# Save output as .txt file
+# Arguments: 1 (input .csv file for space delimited .txt output)
+# Date: Oct 2021
+
+#check if there is valid input. if yes, convert csv to space delimited file
+if [ ! -z "$1" ] 
+then echo "Creating a space delimited version of $1 ..."
+    
+    #remove .csv extension so final file is name.txt
+    fbname=$(basename "$1" .csv)
+
+    #substitute commas in the files with space
+    cat ../data/$1 | tr -s "," " " >> $fbname.txt
+
+    #move finished file to results/
+    mv "$fbname.txt" ../results
+    echo "Finish!"
+
+#exit programme if there is no .csv file
+else 
+    echo -e "Null input\nPlease specify a .csv file"
+fi
+exit
+
+**********************************************************************
+
+Testing csvtospace.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Null input
+Please specify a .csv file
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00432s
+
+======================================================================
+Inspecting script file variable.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/bash
+# Author: An an.nguyen21@imperial.ac.uk
+# Script: variables.sh
+# Description: assign values to variables 
+#
+# Arguments: 2 (string value or integer value as variables)
+# Date: Oct 2021
+
+# Show the use variables
+MyVar='some string'
+echo 'the current value of the variable is' $MyVar
+echo 'Please enter a new string'
+read MyVar
+echo 'the current value of the variable is' $MyVar
+
+## Reading multiple values
+echo 'Enter two numbers separated by space(s)'
+read a b
+echo 'you entered' $a 'and' $b '. Their sum is:'
+mysum=`expr $a + $b`
+echo $mysum
+**********************************************************************
+
+Testing variable.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+the current value of the variable is some string
+Please enter a new string
+the current value of the variable is
+Enter two numbers separated by space(s)
+you entered and . Their sum is:
+
+
+**********************************************************************
+
+Encountered error (or warning):
+expr: syntax error: missing argument after ‘+’
+
+======================================================================
+Inspecting script file ConcatenateTwoFiles.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/bash
+# Author: An an.nguyen21@imperial.ac.uk
+# Script: boilerplate.sh
+# Desc: combine two files into one
+# Arguments: 2 (enter 2 files for merging)
+# Date: Oct 2021
+
+#check if there are two valid inputs
+if [ -z "$1" ] || [ -z "$2" ] 
+then 
+    echo 'Missing inputs please enter 2 file names'
+    exit 0 
+else
+    #combine two files in data/ into a new file named MERGED
+    cat ../data/$1 > MERGED
+    cat ../data/$2 >> MERGED
+
+    #save the merged file in results/
+    mv MERGED ../results
+
+    #print content of merged file
+    echo "Merged file saved as MERGED in results/ and is shown below"
+    cat ../results/MERGED
+
+fi
+
+exit
+
+**********************************************************************
+
+Testing ConcatenateTwoFiles.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Missing inputs please enter 2 file names
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00348s
+
+======================================================================
+Inspecting script file UnixPrac1.txt...
+
+File contents are:
+
+**********************************************************************
+#!/bin/bash
+# Author: An an.nguyen21@imperial.ac.uk
+# Script: UnixPrac1.txt
+# Desc: Bash commands for FASTA files
+# Date: Oct 2021
+
+#1 count number of lines of each .fasta file
+wc -l ../data/*.fasta
+
+#2 print everything starting from the second line for E.coli.fasta
+sed 1d ../data/E.coli.fasta
+
+#3 count the sequence length of the E.coli genome 
+sed 1d ../data/E.coli.fasta | tr -d "\n" | wc -m
+
+#4 count the number of "ATGC" sequence in E.coli.fasta
+sed 1d ../data/E.coli.fasta | tr -d "\n" | grep -o "ATGC" | wc -l 
+
+#5 compute AT/GC ratio
+echo "scale=3;" $(grep -o [A,T] ../data/E.coli.fasta | wc -c)/$(grep -o [G,C] ../data/E.coli.fasta | wc -c) | bc -l
+
+**********************************************************************
+
+Testing UnixPrac1.txt...
+
+======================================================================
+Inspecting script file CompileLaTeX.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/bash
+# Author: An an.nguyen21@imperial.ac.uk
+# Script: CompileLaTeX.sh
+# Desc: combine .tex and .bib into a single .pdf
+
+# Save output as .pdf file
+# Arguments: 1 (.tex file)
+# Date: Oct 2021
+
+#remove .tex file extension 
+fbname=$(basename "$1" .tex)
+
+#check there is a valid input
+if [ -z "$fbname" ] 
+then 
+    echo 'Missing inputs please enter a .tex file'
+    exit 0 
+fi
+
+#compile latex file
+echo "Creating pdf with bibliography included"
+pdflatex $fbname
+bibtex $fbname
+pdflatex $fbname
+pdflatex $fbname
+
+#move output file to results/
+mv $fbname.pdf ../results
+evince ../results/$fbname.pdf &
+
+## Cleanup
+rm *.aux
+rm *.log
+rm *.bbl
+rm *.blg
+
+exit
+
+
+**********************************************************************
+
+Testing CompileLaTeX.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Missing inputs please enter a .tex file
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00462s
+
+======================================================================
+Inspecting script file MyExampleScript.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/bash
+# Author: An an.nguyen21@imperial.ac.uk
+# Script: MyExampleScript.sh
+# Desc: two different ways to display variables
+
+# Arguments: 2 (having string or command substituion as the value of variables)
+# Date: Oct 2021
+
+#assign variables
+msg1="Hello"
+msg2=$USER
+
+#print variables using variable names
+echo "$msg1 $msg2"
+
+#print variables using their values
+echo "Hello $USER"
+echo
+**********************************************************************
+
+Testing MyExampleScript.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Hello mhasoba
+Hello mhasoba
+
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00371s
+
+======================================================================
+======================================================================
+Finished running scripts
+
+Ran into 1 errors
+
+======================================================================
+======================================================================
+
+FINISHED WEEKLY ASSESSMENT
+
+Current Points for the Week = 100
+
+NOTE THAT THESE ARE POINTS, NOT MARKS FOR THE WEEK!
