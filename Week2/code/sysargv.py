@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-argv - 'argument variable' in python
+Assigns different variables to **sys.argv**
 """
 __appname__ = '[sysargv.py]'
 __author__ = 'An (an.nguyen21@imperial.ac.uk)'

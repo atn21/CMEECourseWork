@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""A boilerplate program for python3 with doctest"""
+"""Based on control_flow.py with added doctest."""
 
 __appname__ = '[test_control_flow.py]'
 __author__ = 'An (an.nguyen21@imperial.ac.uk)'

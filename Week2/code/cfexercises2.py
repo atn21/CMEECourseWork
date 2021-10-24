@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Loops and conditionals"""
+"""Contain loops and conditionals"""
 
 __appname__ = '[cfexercises2.py]'
 __author__ = 'An (an.nguyen21@imperial.ac.uk)'

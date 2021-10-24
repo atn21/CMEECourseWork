@@ -9,13 +9,13 @@ __author__ = 'An (an.nguyen21@imperial.ac.uk)'
 __version__ = '0.0.1'
 __license__ = ""
 
-#imports
+#import mods
 import csv
 import sys
 import doctest
 import re
 
-#Define function
+#functions
 def is_an_oak(name):
     """ Returns True if name is starts with 'quercus' 
     >>> is_an_oak('Fagus sylvatica')
@@ -31,9 +31,8 @@ def is_an_oak(name):
 
 def main(argv): 
     """
-    Opens and reads TestOaksData.csv, opens JustOaksData.csv for writing
-    Only if species in TestOaksData.csv are from the genus "Quercus" are 
-    included in JustOaksData.csv.
+    Opens and reads TestOaksData.csv, opens JustOaksData.csv for writing.
+    Only the spcies under genus "Quercus" are included in JustOaksData.csv.
     """
     f = open('../data/TestOaksData.csv','r')
     g = open('../data/JustOaksData.csv','w')

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 """
-Script populates a dictionary called taxa_dic derived from taxa so 
-that it maps order names to set of taxa.
+Populates a dictionary called taxa_dic derived from 
+taxa the list so that it maps order names to sets of taxa.
 """
 
 __appname__ = '[dictionary.py]'
@@ -27,6 +27,7 @@ taxa = [ ('Myotis lucifugus','Chiroptera'),
         ]
 
 def dict(x=taxa):
+        """Make dictionary"""
         taxa_dic = {}
         for n,t in x:
                 if t in taxa_dic:
@@ -36,6 +37,7 @@ def dict(x=taxa):
         print(taxa_dic)
 
 def main(argv):
+        """Make a dictionary for taxa"""
         dict(taxa)
         return 0
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""demonstrate global and local variable"""
+"""Demonstrate the difference between global and local variable"""
 
 __appname__ = '[scope.py]'
 __author__ = 'An (an.nguyen21@imperial.ac.uk)'

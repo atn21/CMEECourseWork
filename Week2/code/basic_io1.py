@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-Basic file input
+Loop through all lines in a file
 """
 
 __appname__ = '[basic_io1.py]'

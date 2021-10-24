@@ -2,8 +2,7 @@
 
 """
 Takes the DNA sequences from two (user input or default) files
-and saves any alignment which has the highest score in a
-single text file
+and saves all alignments with the highest score in a text file.
 """
 
 __appname__ = '[align_seqs_better.py]'
@@ -11,27 +10,32 @@ __author__ = 'An (an.nguyen21@imperial.ac.uk)'
 __version__ = '0.0.1'
 __license__ = ""
 
+#imports
 import sys
 import pickle
-
-#!/usr/bin/env python3
-
 import sys
 
+
 def read_seq(userinput):
+    """Take inputs"""
     with open(userinput, "r") as process:
         sequence = process.readlines()
         sequence = [line.rstrip('\n') for line in sequence[1:]]
         sequence = "".join(sequence)
     return sequence
 
+#process user inputs
 if len(sys.argv) == 3:
     seq1 = read_seq(sys.argv[1])
     seq2 = read_seq(sys.argv[2])
+
+#if no user, process default files    
 else:
     seq1 = read_seq("../../Week1/data/407228412.fasta")
     seq2 = read_seq("../../Week1/data/407228326.fasta")
 
+# Assign the longer sequence s1, and the shorter to s2
+# l1 is length of the longest, l2 that of the shortest
 l1 = len(seq1)
 l2 = len(seq2)
 if l1 >= l2:
@@ -68,14 +72,17 @@ for i in range(l1): # Note that you just take the last alignment with the highes
         my_best_score = z
         save.append((my_best_align, my_best_score))
 
+#find all alignments with the highest score
 max_align_score = max(s[1] for s in save)
 max_align_seq = [seq[0] for seq in save if seq[1] == max_align_score]
 
+#use pickle to save and load the best alignments
 with open('../sandbox/pickleseq', 'wb') as f:
     pickle.dump(max_align_seq, f)
 with open('../sandbox/pickleseq', 'rb') as f:
     best_alignment = pickle.load(f)
 
+#save output in resutls/
 with open("../results/align_seqs_better_results.txt", "w") as done:
     done.write("Best score: " + str(max_align_score) + "\n" +
     "Best alignment: " + "\n" + str(best_alignment))

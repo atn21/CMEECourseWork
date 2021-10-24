@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 
-"""A boilerplate program for python3"""
+"""
+Shows the use of control statements, 
+example arguments are also included.
+"""
 
 __appname__ = '[control_flow.py]'
 __author__ = 'An (an.nguyen21@imperial.ac.uk)'

@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
 """
-demonstrate how to handle csv files with python
+Reads and writes .csv files. File content is printed as a list, 
+stating species name after each row. Some rows from the original file 
+is written into a different csv. 
 """
 
 __appname__ = '[basic_csv.py]'

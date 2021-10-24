@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-Finds just those taxa that are oak trees from a list of species
+Finds taxa that are oak trees from a list of species
 using list comprehension and loops
 """
 

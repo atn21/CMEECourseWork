@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Debug a script
+The function has a written-in error. *pdb* was used to detect the bug. 
 """
 
 __appname__ = '[debugme.py]'
@@ -10,8 +10,10 @@ __license__ = "None"
 
 
 def buggyfunc(x):
+    """Function contains an error"""
     y = x
     for i in range(x):
+        #Fix the bug with except and try
         try: 
             y = y-1
             z = x/y

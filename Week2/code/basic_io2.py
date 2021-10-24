@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
 """
-Show file output
+uses a for loop to write numbers 0-99 into a .txt file 
+with a new line between each number
 """
 __appname__ = '[basic_io2.py]'
 __author__ = 'An (an.nguyen21@imperial.ac.uk)'

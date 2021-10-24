@@ -1,6 +1,9 @@
  #!/usr/bin/env python3
 
-"""Turn the script into a module and added test arguments"""
+"""
+Mathematical functions with different conditionals. 
+Main function test all mathematical functions on sample arguments.
+"""
 
 __appname__ = '[cfexercises1.py]'
 __author__ = 'An (an.nguyen21@imperial.ac.uk)'
@@ -10,14 +13,23 @@ __license__ = "None"
 import sys
 
 def foo_1(x=0):
+    """
+    Finds the square root
+    """
     return x ** 0.5
 
 def foo_2(x=0, y=0):
+    """
+    Returns the larger of two numbers
+    """
     if x > y:
         return x
     return y
 
 def foo_3(x=0, y=0, z=0):
+    """
+    Returns 3 numbers in ascending order
+    """
     if x > y:
         tmp = y
         y = x
@@ -29,17 +41,26 @@ def foo_3(x=0, y=0, z=0):
     return [x, y, z]
 
 def foo_4(x=0):
+    """
+    Returns factorial of x
+    """
     result = 1
     for i in range(1, x + 1):
         result = result * i
     return result
 
-def foo_5(x=0): # a recursive function that calculates the factorial of x
+def foo_5(x=0): 
+    """
+    a recursive function that calculates the factorial of x
+    """
     if x == 1:
         return 1
     return x * foo_5(x - 1)
      
-def foo_6(x=0): # Calculate the factorial of x in a different way
+def foo_6(x=0): 
+    """
+    Calculate the factorial of x in a different way
+    """
     facto = 1
     while x >= 1:
         facto = facto * x
@@ -47,10 +68,9 @@ def foo_6(x=0): # Calculate the factorial of x in a different way
     return facto
 
 def main(argv):
-    print(foo_1(6))
+    print(foo_1(9))
     print(foo_2(4,5))
-    print(foo_3(1,2,3))
-    print(foo_4(7))
+    print(foo_3(3,2,7))
     print(foo_5(9))
     print(foo_6(8))
     return 0
