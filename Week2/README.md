@@ -87,17 +87,17 @@ The function has a written-in error. *pdb* was used to detect the bug.
 
 Takes DNA sequences as input from a csv file and aligns two DNA sequences. The best alignment, along with its corresponding score is then saved in the results/ directory.
 
-### 21. align_seqs_fasta
+### 21. align_seqs_fasta.py
 
 Takes the DNA sequences from two (user input or default) fasta files and saves the best alignment along with the corresponding score in a single text file.
 
-### 22. align_seqs_better
+### 22. align_seqs_better.py
 
 Takes the DNA sequences from two (user input or default) files and saves all alignment with the highest score into a text file.
 
-### 23. oaks_debugme
+### 23. oaks_debugme.py
 
-Debug by writing doctests, where the bug prevents oaks from being found.
+A bug prevents oaks from being found. The program is then debuged with doctest.
 
 ## Files in data directory
 

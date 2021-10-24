@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
 """
-Debug by writing doctests, where the bug prevents oaks from being found
+A bug prevents oaks from being found. 
+The program is then debuged with doctest. 
 """
 
 __appname__ = '[oaks_debugme.py]'
