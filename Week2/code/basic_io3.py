@@ -1,5 +1,13 @@
 #!/usr/bin/env python3
- 
+
+"""
+Save files with pickle
+"""
+__appname__ = '[basic_io3.py]'
+__author__ = 'An (an.nguyen21@imperial.ac.uk)'
+__version__ = '0.0.1'
+
+
 #############################
 # STORING OBJECTS
 #############################

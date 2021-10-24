@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""A boilerplate programme for python3"""
+"""A boilerplate program for python3"""
 
 __appname__ = '[control_flow.py]'
 __author__ = 'An (an.nguyen21@imperial.ac.uk)'

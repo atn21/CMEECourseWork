@@ -1,5 +1,7 @@
  #!/usr/bin/env python3
 
+"""Turn the script into a module and added test arguments"""
+
 __appname__ = '[cfexercises1.py]'
 __author__ = 'An (an.nguyen21@imperial.ac.uk)'
 __version__ = '0.0.2'

@@ -1,3 +1,15 @@
+#!/usr/bin/env python3
+
+"""
+Debug by writing doctests, where the bug prevents oaks from being found
+"""
+
+__appname__ = '[oaks_debugme.py]'
+__author__ = 'An (an.nguyen21@imperial.ac.uk)'
+__version__ = '0.0.1'
+__license__ = ""
+
+#imports
 import csv
 import sys
 import doctest
@@ -18,10 +30,17 @@ def is_an_oak(name):
     return True if re.search(r"\bquercus\b", name, re.IGNORECASE) else False
 
 def main(argv): 
+    """
+    Opens and reads TestOaksData.csv, opens JustOaksData.csv for writing
+    Only if species in TestOaksData.csv are from the genus "Quercus" are 
+    included in JustOaksData.csv.
+    """
     f = open('../data/TestOaksData.csv','r')
     g = open('../data/JustOaksData.csv','w')
     taxa = csv.reader(f)
+    next(f, None)
     csvwrite = csv.writer(g)
+    csvwrite.writerow(['Genus', 'Species'])
     oaks = set()
     for row in taxa:
         print(row)
@@ -38,5 +57,5 @@ def main(argv):
 if (__name__ == "__main__"):
     status = main(sys.argv)
 
+#run doctest
 doctest.testmod()
-

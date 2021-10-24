@@ -1,5 +1,13 @@
 #!/usr/bin/env python3
 
+"""
+Basic file input
+"""
+
+__appname__ = '[basic_io1.py]'
+__author__ = 'An (an.nguyen21@imperial.ac.uk)'
+__version__ = '0.0.1'
+
 #############################
 # FILE INPUT
 #############################

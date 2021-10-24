@@ -1,5 +1,15 @@
 #!/usr/bin/env python3
 
+"""
+loops in python
+"""
+
+__appname__ = '[loops.py]'
+__author__ = 'An (an.nguyen21@imperial.ac.uk)'
+__version__ = '0.0.1'
+__license__ = ""
+
+
 # FOR loops in Python
 for i in range(5):
     print(i)

@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
 
-#demonstrate global and local varariable
+"""demonstrate global and local variable"""
 
+__appname__ = '[scope.py]'
+__author__ = 'An (an.nguyen21@imperial.ac.uk)'
+__version__ = '0.0.1'
+__license__ = ""
+
+#difference between global and local variable
 _a_global = 10 # a global variable
 
 if _a_global >= 5:

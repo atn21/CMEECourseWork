@@ -1,11 +1,19 @@
 #!/usr/bin/env python3
 
+"""
+demonstrate how to handle csv files with python
+"""
+
+__appname__ = '[basic_csv.py]'
+__author__ = 'An (an.nguyen21@imperial.ac.uk)'
+__version__ = '0.0.1'
+__license__ = ""
+
 import csv
 
 # Read a file containing:
 # 'Species','Infraorder','Family','Distribution','Body mass male (Kg)'
 with open('../data/testcsv.csv','r') as f:
-
     csvread = csv.reader(f)
     temp = []
     for row in csvread:

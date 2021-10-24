@@ -1,6 +1,21 @@
+
+"""
+Takes DNA sequences as input from a csv file and aligns two DNA sequences. 
+The best alignment, along with its corresponding score is then saved in 
+align_seqs_results.txt in the results/ directory. 
+
+"""
+
+__appname__ = '[align_seqs.py]'
+__author__ = 'An (an.nguyen21@imperial.ac.uk)'
+__version__ = '0.0.1'
+__license__ = ""
+
+#import some mods
 import sys
 import csv
 
+#open and read csv file
 read_seq = []
 with open("../data/align_seqs_data.csv", "r") as myfile:
     process_csv = csv.reader(myfile)
@@ -28,6 +43,7 @@ def calculate_score(s1, s2, l1, l2, startpoint):
     for i in range(l2):
         if (i + startpoint) < l1:
             if s1[i + startpoint] == s2[i]: # if the bases match
+                # * means matched base and - means base not matched
                 matched = matched + "*"
                 score = score + 1
             else:
@@ -54,7 +70,7 @@ my_best_score = -1
 for i in range(l1): # Note that you just take the last alignment with the highest score
     z = calculate_score(s1, s2, l1, l2, i)
     if z > my_best_score:
-        my_best_align = "." * i + s2 # think about what this is doing!
+        my_best_align = "." * i + s2 
         my_best_score = z 
 print(my_best_align)
 print(s1)

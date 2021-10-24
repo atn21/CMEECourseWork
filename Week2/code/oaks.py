@@ -1,6 +1,15 @@
 #!/usr/bin/env python3
 
-## Finds just those taxa that are oak trees from a list of species
+"""
+Finds just those taxa that are oak trees from a list of species
+using list comprehension and loops
+"""
+
+__appname__ = '[oaks.py]'
+__author__ = 'An (an.nguyen21@imperial.ac.uk)'
+__version__ = '0.0.1'
+__license__ = ""
+
 
 taxa = [ 'Quercus robur',
          'Fraxinus excelsior',
@@ -10,6 +19,9 @@ taxa = [ 'Quercus robur',
        ]
 
 def is_an_oak(name):
+    """
+    Returns True if name starts with 'quercus'
+    """
     return name.lower().startswith('quercus ')
 
 ##Using for loops

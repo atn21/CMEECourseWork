@@ -1,3 +1,14 @@
+#!/usr/bin/env python3
+"""
+Debug a script
+"""
+
+__appname__ = '[debugme.py]'
+__author__ = 'An (an.nguyen21@imperial.ac.uk)'
+__version__ = '0.0.1'
+__license__ = "None"
+
+
 def buggyfunc(x):
     y = x
     for i in range(x):
