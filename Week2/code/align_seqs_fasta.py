@@ -1,5 +1,17 @@
 #!/usr/bin/env python3
 
+"""
+Takes the DNA sequences from two (user input or default) fasta files
+and saves the best alignment along with the corresponding score in a
+single text file
+"""
+
+__appname__ = '[align_seqs_fasta.py]'
+__author__ = 'An (an.nguyen21@imperial.ac.uk)'
+__version__ = '0.0.1'
+__license__ = ""
+
+
 import sys
 
 def read_seq(userinput):

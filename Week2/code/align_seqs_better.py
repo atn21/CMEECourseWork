@@ -1,5 +1,16 @@
 #!/usr/bin/env python3
 
+"""
+Takes the DNA sequences from two (user input or default) files
+and saves any alignment which has the highest score in a
+single text file
+"""
+
+__appname__ = '[align_seqs_better.py]'
+__author__ = 'An (an.nguyen21@imperial.ac.uk)'
+__version__ = '0.0.1'
+__license__ = ""
+
 import sys
 import pickle
 

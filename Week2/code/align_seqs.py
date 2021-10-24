@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 
 """
 Takes DNA sequences as input from a csv file and aligns two DNA sequences. 
