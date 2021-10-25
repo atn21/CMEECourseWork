@@ -4,7 +4,6 @@
 Takes DNA sequences as input from a csv file and aligns two DNA sequences. 
 The best alignment, along with its corresponding score is then saved in 
 align_seqs_results.txt in the results/ directory. 
-
 """
 
 __appname__ = '[align_seqs.py]'
@@ -81,3 +80,10 @@ print("Best score:", my_best_score)
 with open("../results/align_seqs_results.txt", "w") as done:
     done.write("Best alignment: " + str(my_best_align) + "\n" + 
     "Best score: " + str(my_best_score))
+
+def main(argv):
+    return my_best_align, my_best_score
+
+if __name__ == '__main__':
+    status = main(sys.argv)
+    sys.exit(status)
