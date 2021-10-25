@@ -86,3 +86,10 @@ with open('../sandbox/pickleseq', 'rb') as f:
 with open("../results/align_seqs_better_results.txt", "w") as done:
     done.write("Best score: " + str(max_align_score) + "\n" +
     "Best alignment: " + "\n" + str(best_alignment))
+
+def main(argv):
+    return best_alignment, max_align_score
+
+if __name__ == '__main__':
+    status = main(sys.argv)
+    sys.exit(status)

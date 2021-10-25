@@ -72,3 +72,10 @@ for i in range(l1): # Note that you just take the last alignment with the highes
 with open("../results/align_seqs__fasta_results.txt", "w") as done:
     done.write("Best score: " + str(my_best_score) + "\n" + 
     "Best alignment: " + "\n" + str(my_best_align))
+
+def main(argv):
+    return my_best_align, my_best_score
+
+if __name__ == '__main__':
+    status = main(sys.argv)
+    sys.exit(status)
