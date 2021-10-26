@@ -12,3 +12,4 @@ Contains all coursework files.
 
 ## Week 3
 * Biological Computing in R
+* Data Management and Visualization
