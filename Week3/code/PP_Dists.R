@@ -8,8 +8,8 @@
 
 rm(list = ls())
 
-require(ggplot2)
 require(tidyverse)
+require(plyr)
 
 MyDF <- read.csv("../data/EcolArchives-E089-51-D1.csv")
 
@@ -50,17 +50,20 @@ pdf("../results/SizeRatio_Subplots.pdf")
 par(mfcol=c(3,2)) #initialize multi-paneled plot
 for (t in unique(MyDF$Type.of.feeding.interaction)) {
   p <- subset(MyDF, Type.of.feeding.interaction == t)
-  ggplot(MyDF, aes(x = log(Prey.mass/Predator.mass), fill = p)) +  geom_density() + facet_wrap( .~ p)
-p
-dev.off()
+  ratio <- as.numeric(log(p$Prey.mass/p$Predator.mass))
+  hist(ratio,
+       xlab = "log10(Prey Mass/Predator Mass (g))",
+       ylab = "Count",
+       main = t)
 }
+dev.off()
 
 mmpred <- ddply(MyDF, ~ Type.of.feeding.interaction, summarize,
     Predator_mass_mean = mean(log(Predator.mass)),
     Predator_mass_median = median(log(Predator.mass)),
     Prey_mass_mean = mean(log(Prey.mass)),
     Prey_mass_median = median(log(Prey.mass)),
-    Preyvspred_mean = mean(preyvspred_log),
-    Preyvspred_median = median(preyvspred_log))
+    Preyvspred_mean = mean(log(Prey.mass/Predator.mass)),
+    Preyvspred_median = median(log(Prey.mass/Predator.mass)))
 
 write.csv(mmpred, "../results/PP_Results.csv", row.names = FALSE)
