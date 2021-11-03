@@ -1,5 +1,9 @@
+# Author: An (an.nguyen21@imperial.ac.uk)
+# Script: DataWrang.R
+# Created: Oct 2021
+# How to wrangle the Pound Hill Dataset with R packages.
 
-#Wrangling the Pound Hill Dataset ############
+rm(list = ls())
 
 #Load the dataset
 # header = false because the raw data don't have real headers
@@ -25,7 +29,6 @@ dim(MyData)
 MyData[MyData == ""] = 0
 
 #Convert raw matrix to data frame 
-
 TempData <- as.data.frame(MyData[-1,],stringsAsFactors = F) #stringsAsFactors = F is important!
 colnames(TempData) <- MyData[1,] # assign column names from original data
 

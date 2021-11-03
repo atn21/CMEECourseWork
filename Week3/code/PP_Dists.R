@@ -1,3 +1,11 @@
+# Author: An (an.nguyen21@imperial.ac.uk)
+# Script: PP_Dists.R
+# Created: Oct 2021
+# Desc: Draw the distributions of predator mass, prey mass, and the size ratio of 
+# prey mass to predator mass by feeding interaction type. Use logarithms 
+# of masses (or size ratios) for all three plots. In addition, the script calculates 
+# the (log) mean and median predator mass, prey mass and predator-prey size-ratios to a csv file.
+
 rm(list = ls())
 
 require(ggplot2)

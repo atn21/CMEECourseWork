@@ -8,7 +8,6 @@
 #               numyears: number of years)
 # Date: Oct 2021
 
-#clear workspace
 rm(list = ls())
 
 stochrick <- function(p0 = runif(1000, .5, 1.5), r = 1.2, K = 1, sigma = 0.2,numyears = 100)

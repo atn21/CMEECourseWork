@@ -1,3 +1,10 @@
+# Author: An (an.nguyen21@imperial.ac.uk)
+# Script: apply1.R
+# Created: Oct 2021
+# Desc: Use **apply** to perform function on a matrix.
+
+rm(list = ls())
+
 ## Build a random matrix
 M <- matrix(rnorm(100), 10, 10)
 

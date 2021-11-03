@@ -1,6 +1,11 @@
-#Wrangling the Pound Hill Dataset with tidyverse
+# Author: An (an.nguyen21@imperial.ac.uk)
+# Script: DataWrangTidy.R
+# Created: Oct 2021
+#Use tidyverse for the data wrangling component in DataWrang.R.
+
 rm(list = ls())
 require(tidyverse)
+
 #Load the dataset
 # header = false because the raw data don't have real headers
 MyData <- as.matrix(read.csv("../data/PoundHillData.csv", header = FALSE))
@@ -25,14 +30,14 @@ dim(MyData)
 MyData[MyData == ""] = 0
 
 #Convert raw matrix to data frame 
-
 TempData <- as.data.frame(MyData[-1,],stringsAsFactors = F) #stringsAsFactors = F is important!
 colnames(TempData) <- MyData[1,] # assign column names from original data
 
-#convert wide to long format
+#convert wide to long format with tidyr
 MyWrangledData <- TempData %>% 
     gather(Species, Count, -Cultivation, -Block, -Plot, -Quadrat)
 
+#set Cultivation, Block, Plot, Quadrat columns as factors and count as numeric with dplyr
 MyWrangledData <- MyWrangledData %>% mutate(across(c(Cultivation, Block, Plot, Quadrat), as.factor)%>%mutate(Count = as.integer(Count)))
 
 str(MyWrangledData)

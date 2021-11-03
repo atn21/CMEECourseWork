@@ -1,3 +1,10 @@
+# Author: An (an.nguyen21@imperial.ac.uk)
+# Script: Vectorize1.R
+# Created: Oct 2021
+# Desc: Utilise vectorization instead of performing the operation element-wise.
+
+rm(list = ls())
+
 M <- matrix(runif(1000000),1000,1000)
 
 SumAllElements <- function(M){

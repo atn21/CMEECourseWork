@@ -1,4 +1,9 @@
-######### Functions ##########
+# Author: An (an.nguyen21@imperial.ac.uk)
+# Script: sample.R
+# Created: Oct 2021
+# Desc: Use of lapply and sapply.
+
+rm(list = ls())
 
 ## A function to take a sample of size n from a population "popn" and return its mean
 myexperiment <- function(popn,n){

@@ -1,3 +1,10 @@
+# Author: An (an.nguyen21@imperial.ac.uk)
+# Script: browse.R
+# Created: Oct 2020
+# Desc: How to use browser() to debug.
+
+rm(list = ls())
+
 Exponential <- function(N0 = 1, r = 1, generations = 10){
   # Runs a simulation of exponential growth
   # Returns a vector of length generations

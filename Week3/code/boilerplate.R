@@ -1,4 +1,9 @@
-# A boilerplate R script
+# Author: An (an.nguyen21@imperial.ac.uk)
+# Script: boilerplate.R
+# Created: Oct 2021
+# Desc: A boilerplate R script
+
+rm(list = ls())
 
 MyFunction <- function(Arg1, Arg2){
   

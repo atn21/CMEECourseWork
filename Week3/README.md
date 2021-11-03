@@ -72,13 +72,13 @@ How to use **browser()** to debug.
 
 How to use **try()** to catch errors.
 
-### 17. TAutoCorr.R
+### 17. Florida_warming.R
 
-Calculate the correlation between n - 1 pairs of years, where n is the total number of years. 
+Calculate the correlation coefficients between temperature and time through the use of a permutation analysis.
 
-### 18. TAutoCorr.tex
+### 18. Florida_warming.tex
 
-Compiles the report which contains the output of TAutoCorr.R into a pdf.
+Compiles the report which contains the output of Florida_warming.R into a pdf.
 
 ### 19. DataWrang.R
 
@@ -114,4 +114,15 @@ A world map which has data in GPDD superimposed on top.
 
 ## Files in data directory
 
+### 4 .csv files
+* colArchives-E089-51-D1.csv         
+* PoundHillData.csv      
+* trees.csv
+* PoundHillMetaData.csv
 
+### 2 .RData files
+* GPDDFiltered.RData                  
+* KeyWestAnnualMeanTemperature.RData  
+
+### 1 .txt file
+* Results.txt

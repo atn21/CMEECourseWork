@@ -1,3 +1,14 @@
+# Author: An an.nguyen21@imperial.ac.uk
+# Script: Ricker.R
+# Desc: Run a simulation of the Ricker model and return a vector of length generations.
+# Arguments: 5 (p0: initial pop density
+#               r: intrinsic growth rate
+#               K: carrying capacity
+#               generations: number of generations)
+# Date: Oct 2021
+
+rm(list = ls())
+
 Ricker <- function(N0=1, r=1, K=10, generations=50)
 {
   # Runs a simulation of the Ricker model

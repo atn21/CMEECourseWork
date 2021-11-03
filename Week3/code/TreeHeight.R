@@ -1,14 +1,12 @@
 # Author: An an.nguyen21@imperial.ac.uk
 # Script: TreeHeight.R
-# Desc: This function calculates heights of trees given distance of each tree 
-# from its base and angle to its top, using  the trigonometric formula 
-# height = distance * tan(radians)
+# Desc: Calculates heights of trees given distance of each tree 
+#       from its base and angle to its top.
 # Arguments: 2 (degrees:   The angle of elevation of tree
 #               distance:  The distance from base of tree (e.g., meters))
 # Output: The heights of the tree, same units as "distance"
 # Date: Oct 2021
 
-#clear workspace
 rm(list = ls())
 
 #read data
