@@ -1,0 +1,58 @@
+rm(list = ls())
+
+require(ggplot2)
+require(tidyverse)
+
+MyDF <- read.csv("../data/EcolArchives-E089-51-D1.csv")
+
+MyDF <- MyDF %>% mutate(Prey.mass = case_when(Prey.mass.unit == "mg" ~ Prey.mass / 1000, TRUE ~ Prey.mass))%>% mutate(Prey.mass.unit = case_when(Prey.mass.unit == "mg" ~ "g", TRUE ~ Prey.mass.unit))
+
+#test <- test %>% mutate(i1 = Col2 == 'C', 
+#      Col1 = case_when(i1 ~ Col1 * 1000, TRUE ~ Col1), 
+#      Col2 = case_when(i1 ~ 'D', TRUE ~ Col2), i1 = NULL)
+
+#test <- test %>% mutate(Col1 = ifelse(Col2 == 'C',  Col1 * 1000, Col1),
+#Col2 = ifelse(Col2 == 'C', "D", Col2))
+
+pdf("../results/Pred_Subplots.pdf")
+par(mfcol=c(3,2)) #initialize multi-paneled plot
+for (t in unique(MyDF$Type.of.feeding.interaction)) {
+  p <- subset(MyDF, Type.of.feeding.interaction == t)
+  pred_mass_log <- as.numeric(log(p$Predator.mass))
+  hist(pred_mass_log,
+     xlab = "log10(Predator Mass (g))",
+     ylab = "Count",
+     main = t)
+}
+dev.off()
+
+pdf("../results/Prey_Subplots.pdf")
+par(mfcol=c(3,2)) #initialize multi-paneled plot
+for (t in unique(MyDF$Type.of.feeding.interaction)) {
+  p <- subset(MyDF, Type.of.feeding.interaction == t)
+  prey_mass_log <- as.numeric(log(p$Prey.mass))
+  hist(prey_mass_log,
+     xlab = "log10(Prey Mass (g))",
+     ylab = "Count",
+     main = t)
+}
+dev.off()
+
+pdf("../results/SizeRatio_Subplots.pdf")
+par(mfcol=c(3,2)) #initialize multi-paneled plot
+for (t in unique(MyDF$Type.of.feeding.interaction)) {
+  p <- subset(MyDF, Type.of.feeding.interaction == t)
+  ggplot(MyDF, aes(x = log(Prey.mass/Predator.mass), fill = p)) +  geom_density() + facet_wrap( .~ p)
+p
+dev.off()
+}
+
+mmpred <- ddply(MyDF, ~ Type.of.feeding.interaction, summarize,
+    Predator_mass_mean = mean(log(Predator.mass)),
+    Predator_mass_median = median(log(Predator.mass)),
+    Prey_mass_mean = mean(log(Prey.mass)),
+    Prey_mass_median = median(log(Prey.mass)),
+    Preyvspred_mean = mean(preyvspred_log),
+    Preyvspred_median = median(preyvspred_log))
+
+write.csv(mmpred, "../results/PP_Results.csv", row.names = FALSE)
