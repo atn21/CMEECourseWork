@@ -1,6 +1,6 @@
 #!/bin/bash
 # Author: An an.nguyen21@imperial.ac.uk
-# Script: CompileLaTeX.sh
+# Script: Florida_warming_compile.sh
 # Desc: combine .tex and .bib into a single .pdf
 
 # Save output as .pdf file
