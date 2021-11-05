@@ -36,6 +36,17 @@ shuffle_cor <- function(x) {
 #repeat the shuffling 19900 times
 calfraction <- sapply(1:sampletime, function(i) shuffle_cor(ats))
 
+# histogram to compare coefficient correlations
+pdf("../results/Floridaplot.pdf")
+hist(calfraction, 
+    xlim = c(-0.6, 0.6),
+    xlab = "Correlation coefficients of random sample",
+    main = NULL)
+abline(v = ce, col="blue", lwd=3, lty=2)
+text(0.27, 3300, "Original correlation coefficient 
+     \n between years and temperature: 0.533", cex = 0.65, col="blue")
+dev.off()
+
 #calculate approximate, asymptotic p-value (what fraction of 
 #the random correlation coefficients were greater than the observed one 
 p <- sum(calfraction > ce)/length(calfraction)

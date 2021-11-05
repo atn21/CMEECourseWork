@@ -1,0 +1,49 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tabularx}
+
+\newenvironment{conditions*}
+  {\par\vspace{\abovedisplayskip}\noindent
+   \tabularx{\columnwidth}{>{$}l<{$} @{${}={}$} >{\raggedright\arraybackslash}X}}
+  {\endtabularx\par\vspace{\belowdisplayskip}}
+  
+\title{Is Florida getting warmer?}
+\author{An Nguyen}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+This report investigates whether temperature significantly correlates with year, across years in Key West, Florida. 
+
+The null hypothesis states that there is no strong correlation. The alternative hypothesis claims there is strong correlation, temperature does significantly correlates with year. A permutation analysis is used to calculate the p-value. A distribution of random correlation coefficients is generated. After sampling, to obtain the p-value, the number of test statistics which is as or more extreme than the initial test statistic is divided by the total number of test statistics calculated:
+
+\begin{equation}
+\frac{B+1}{M+1}
+\end{equation}
+
+where:
+\begin{conditions*}
+B    &  the number of random permutations in which a statistic greater or equal          than the observed one is obtained \\
+M    &  the total number of random permutations sampled
+\end{conditions*}
+
+\section{Results}
+The initial correlation coefficent was calcalutated to be 0.533. After some sufficient number of permutations, the approximate test statistic distribution was created, as shown below: 
+
+\begin{figure}[H]
+\includegraphics[keepaspectratio, width = 4in, height = 3in]{../results/Floridaplot.PDF}
+\centering
+\caption{Distribution of correlation coefficients for temperature and year, showing approximate p-value.}
+\end{figure}
+
+This distribution approximates all possible test statistic values we could have seen under the null hypothesis. No shuffled difference exceeds observed difference, i.e. p-value equals 0. This could be due to the p-value being too small, in such case Phipson and Smyth \cite{PhipsonSmyth+2010} recommends using $\frac{B+1}{M+1}$ to estimate p-value. Using this formula, p-value equals 0.00005002251 which is a lot lower than the normal threshold of 0.05. The evidence is not strong but it is possible that temperature does significantly correlate with year. 
+
+\bibliographystyle{plain}
+  
+\bibliography{Floridabibli}
+
+\end{document}
