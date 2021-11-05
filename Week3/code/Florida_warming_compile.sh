@@ -8,19 +8,18 @@
 # Date: Oct 2021
 
 #compile latex file
-pdflatex Florida_warming.tex
-bibtex Florida_warming
-pdflatex Florida_warming.tex
-pdflatex Florida_warming.tex
-
-#move latex file
-mv Florida_warming.pdf ../results
+#pdflatex Florida_warming.tex
+#bibtex Florida_warming
+#pdflatex Florida_warming.tex
+#pdflatex Florida_warming.tex
+latexmk -pdf
+latexmk -C
 
 ## Cleanup
-rm *.aux
-rm *.log
-rm *.bbl
-rm *.blg
+#rm *.aux
+#rm *.log
+#rm *.bbl
+#rm *.blg
 
 exit
 

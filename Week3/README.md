@@ -112,11 +112,11 @@ Perform regression analysis and save the corresponding regression results a csv 
 
 A world map which has data in GPDD superimposed on top.
 
-### 27. CompileLaTeX. sh
+### 27. Florida_warming_compile.sh
 
 Compile the LaTeX pdf for Florida_warming. 
 
-### 28. Floridabibli.bib
+### 28. Florida_warming_bibli.bib
 
 Bibliography for the Florida_warming.tex file. 
 
