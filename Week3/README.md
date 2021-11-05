@@ -116,17 +116,21 @@ A world map which has data in GPDD superimposed on top.
 
 Compile the LaTeX pdf for Florida_warming. 
 
+### 28. Floridabibli.bib
+
+Bibliography for the Florida_warming.tex file. 
+
 ## Files in data directory
 
 ### 4 .csv files
-* colArchives-E089-51-D1.csv         
-* PoundHillData.csv      
+* colArchives-E089-51-D1.csv
+* PoundHillData.csv
 * trees.csv
 * PoundHillMetaData.csv
 
 ### 2 .RData files
-* GPDDFiltered.RData                  
-* KeyWestAnnualMeanTemperature.RData  
+* GPDDFiltered.RData
+* KeyWestAnnualMeanTemperature.RData 
 
 ### 1 .txt file
 * Results.txt
