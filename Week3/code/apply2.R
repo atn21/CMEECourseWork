@@ -1,5 +1,5 @@
 # Author: An (an.nguyen21@imperial.ac.uk)
-# Script: apply1.R
+# Script: apply2.R
 # Created: Oct 2021
 # Desc: Return input times 100 if sum of input is greater than 0.
 

@@ -1,6 +1,6 @@
 # Author: An (an.nguyen21@imperial.ac.uk)
 # Script: R_conditionals.R
-# Created: Oct 2020
+# Created: Oct 2021
 # How to use conditionals.
 
 rm(list=ls())

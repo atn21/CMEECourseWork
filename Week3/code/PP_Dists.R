@@ -8,8 +8,8 @@
 
 rm(list = ls())
 
-require(tidyverse)
 require(plyr)
+require(tidyverse)
 
 MyDF <- read.csv("../data/EcolArchives-E089-51-D1.csv")
 
