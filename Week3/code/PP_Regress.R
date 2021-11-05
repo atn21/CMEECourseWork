@@ -14,9 +14,9 @@ MyDF <- MyDF %>% mutate(Prey.mass = case_when(Prey.mass.unit == "mg" ~ Prey.mass
 
 #plot regression analysis 
 pdf("../results/PP_Regress_Results.pdf")
-ggplot(MyDF, aes(x=Prey.mass, y=Predator.mass, color = Predator.lifestage)) + 
+print(ggplot(MyDF, aes(x=Prey.mass, y=Predator.mass, color = Predator.lifestage)) + 
   geom_point(shape = 3) + geom_smooth(method="lm",fullrange = TRUE) + facet_grid(Type.of.feeding.interaction ~ .) +
-  scale_x_continuous(trans="log10") + scale_y_continuous(trans = "log10") + xlab("Prey mass in grams") + ylab("Predator mass in grams")
+  scale_x_continuous(trans="log10") + scale_y_continuous(trans = "log10") + xlab("Prey mass in grams") + ylab("Predator mass in grams"))
 dev.off()
 
 #Calculate the regression results corresponding to the lines fitted in the figure.
