@@ -13,3 +13,9 @@ Contains all coursework files.
 ## Week 3
 * Biological Computing in R
 * Data Management and Visualization
+
+## Week 7
+* Biological Computing in Python II
+* Introduction to Jupyter
+* Data analyses with Python & Jupyter
+* Model fitting in Python
