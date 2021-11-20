@@ -4,3 +4,5 @@
 __pycache__/
 .Rhistory
 Feedback/
+.ipynb_checkpoints/
+Week6/

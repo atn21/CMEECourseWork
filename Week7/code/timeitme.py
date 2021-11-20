@@ -1,3 +1,15 @@
+#!/usr/bin/env python3
+"""
+use the timeit module to figure out 
+what is the best way to do something specific 
+as part of a larger program
+"""
+
+__appname__ = '[timeitme.py]'
+__author__ = 'An (an.nguyen21@imperial.ac.uk)'
+__version__ = '0.0.1'
+__license__ = ""
+
 ##############################################################################
 # loops vs. list comprehensions: which is faster?
 ##############################################################################

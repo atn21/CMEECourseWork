@@ -1,3 +1,10 @@
+#!/usr/bin/env/ python3
+"""Use of Regular expressions (regex) as a tool to find patterns in strings"""
+
+__appname__ = '[regexs.py]'
+__author__ = 'An (an.nguyen21@imperial.ac.uk)'
+__version__ = '0.0.1'
+__license__ = ""
 
 
 import re
