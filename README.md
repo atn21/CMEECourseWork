@@ -18,4 +18,3 @@ Contains all coursework files.
 * Biological Computing in Python II
 * Introduction to Jupyter
 * Data analyses with Python & Jupyter
-* Model fitting in Python
