@@ -2,7 +2,7 @@
 
 ## Content
 * code: contains the python scripts of this week. Find detailed content list below. 
-* data: contains the data for the scripts. No data for this week. 
+* data: contains the data for the scripts. 
 * results: contains the output of the scripts. Currently empty. 
 * sandbox: contains miscellaneous files generated when testing the code. Nothing important.
 
@@ -39,4 +39,12 @@ Print a simple sentence in R.
 ### 9. timeitme.py
 
 Use the **timeit** module to figure out what is the best way to do something specific as part of a larger program
+
+### 10. oaks_debugme.py
+
+A bug prevents oaks from being found. The program is then debuged with doctest.
+
+### 5 .csv files: 
+* JustOaksData.csv
+* TestOaksData.csv
 
