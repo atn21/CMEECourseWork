@@ -46,7 +46,7 @@ A bug prevents oaks from being found. The program is then debuged with doctest.
 
 ## Files in data directory
 
-### 5 .csv files: 
+### 2 .csv files: 
 * JustOaksData.csv
 * TestOaksData.csv
 
