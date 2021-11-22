@@ -44,6 +44,8 @@ Use the **timeit** module to figure out what is the best way to do something spe
 
 A bug prevents oaks from being found. The program is then debuged with doctest.
 
+## Files in data directory
+
 ### 5 .csv files: 
 * JustOaksData.csv
 * TestOaksData.csv
