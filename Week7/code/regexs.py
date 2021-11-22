@@ -107,7 +107,7 @@ for email in emails:
     print(email)
 
 #apply regex searches to whole file
-f = open('../../Week2/Data/TestOaksData.csv', 'r')
+f = open('../data/TestOaksData.csv', 'r')
 found_oaks = re.findall(r"Q[\w\s].*\s", f.read()) #f.read() returns the whole text of a file in a single string. Also, the file is closed after reading.
 found_oaks
 
