@@ -1,84 +1,49 @@
-#!/usr/bin/env python
-# coding: utf-8
+#!/usr/bin/env python3
 
-# In[168]:
+"""
+Data Wrangling for Population growth data. 
+"""
 
+__appname__ = '[data_prep.py]'
+__author__ = 'An (an.nguyen21@imperial.ac.uk)'
+__version__ = '0.0.1'
+__license__ = ""
 
+#import mods
 import pandas as pd
+import numpy as np
+import warnings
+warnings.filterwarnings("ignore")
 
-
-# In[169]:
-
-
+#import data
 data = pd.read_csv("../data/LogisticGrowthData.csv")
+
+#read data
 print("Loaded {} columns.".format(len(data.columns.values)))
-
-
-# In[170]:
-
-
 print(data.columns.values)
-
-
-# In[171]:
-
-
 pd.read_csv("../data/LogisticGrowthMetaData.csv")
 
-
-# In[173]:
-
-
+#set unique ID
 data.insert(0, "ID", data.Species + "_" + data.Temp.map(str) + "_" + data.Medium + "_" + data.Citation)
 
-
-# In[183]:
-
-
+#check how many data sets
 len(data.ID.unique())
 
-
-# In[184]:
-
-
+#filter to only essential columns
 pt = data[["ID","Time","PopBio"]]
 
 
-# In[185]:
-
-
-import numpy as np
-
-
-# In[186]:
-
-
+#set wordy ID to numeric ID
 pt['ID'] = pd.factorize(pt.ID)[0]+1
 
-
-# In[187]:
-
-
+#remove negative values and subsets with length less than 5
 pt = pt[pt['Time']  > 0 ]
 pt = pt[pt['PopBio']  > 0 ]
 pt = pt.groupby(['ID']).filter(lambda x: len(x) > 4)
 (pt<0).sum()
 
-
-# In[188]:
-
-
+#calculate natural log
 pt['Log_PopBio'] = np.log(pt['PopBio'])
 
-
-# In[189]:
-
-
-pt
-
-
-# In[190]:
-
-
+#save to csv
 pt.to_csv('../data/test_data.csv') 
-
