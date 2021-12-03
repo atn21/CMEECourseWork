@@ -19,5 +19,5 @@ Contains all coursework files.
 * Introduction to Jupyter
 * Data analyses with Python & Jupyter
 
-## Week 8-9
-* Mini Project
+## Mini Project (Week 8-9)
+* CMEE Mini Project
