@@ -13,6 +13,7 @@ Rscript --no-echo model_fitting.R > silent.out 2> silent.out
 
 # compile LaTeX file
 latexmk -pdf
+mv miniproject.pdf ../results
 latexmk -C
 rm *.bbl
 
