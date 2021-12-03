@@ -9,7 +9,7 @@
 python3 -W ignore data_prep.py
 
 # run model fitting and analysis script
-Rscript --no-echo model_fitting.R > silent.out 2> silent.out
+Rscript --no-echo model_fitting.R 
 
 # compile LaTeX file
 latexmk -pdf
