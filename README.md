@@ -18,3 +18,6 @@ Contains all coursework files.
 * Biological Computing in Python II
 * Introduction to Jupyter
 * Data analyses with Python & Jupyter
+
+## Mini Project (Week 8-9)
+* CMEE Mini Project

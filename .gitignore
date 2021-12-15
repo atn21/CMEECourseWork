@@ -3,7 +3,6 @@
 *.tmp
 __pycache__/
 .Rhistory
-Feedback/
 .ipynb_checkpoints/
 Week6/
 .Rproj.user
