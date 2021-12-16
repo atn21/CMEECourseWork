@@ -2,8 +2,8 @@
 
 rm(list=ls()) # good practice 
 graphics.off()
-source("/rds/general/user/atn21/home/HPC/atn21_HPC_2021_main.R")
-#source("atn21_HPC_2021_main.R")
+#source("/rds/general/user/atn21/home/HPC/atn21_HPC_2021_main.R")
+source("atn21_HPC_2021_main.R")
 iter <- as.numeric(Sys.getenv("PBS_ARRAY_INDEX"))
 if ((iter >= 1) & (iter <= 25)){
   size = 500

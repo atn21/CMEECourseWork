@@ -220,11 +220,28 @@ cluster_run <- function(speciation_rate, size, wall_time, interval_rich,
 
 # Question 20 
 process_cluster_results <- function()  {
-  combined_results <- list() #create your list output here to return
+  mydir <- "~/Documents/CMEECourseWork/HPC/RDA"
+  myfiles <- list.files(path=mydir, pattern="*.rda", full.names=TRUE)
+  data_load <- sapply(myfiles, load)
+  oc_500 <- c()
+  oc_1000 <- c()
+  oc_2500 <- c()
+  oc_5000 <- c()
+  for (i in data_load){
+    paste0("RDA",i)
+  }
+ for (j in 1:length(oc)){
+      if (j > (burn_in_generations/interval_oct)){
+        while(size == 500){
+          oct_500 <- sum_vect(oct_500, oc[j]) 
+        }
+        while(size == 1000){
+          oct_1000 <- sum_vect(oct_sum, oc[j])
+        }
+      }
+    }
   # save results to an .rda file
-  
 }
-
 plot_cluster_results <- function()  {
     # clear any existing graphs and plot your graph within the R window
     # load combined_results from your rda file
@@ -266,57 +283,105 @@ turtle <- function(start_position, direction, length)  {
   #plot(0, 0, ylab = "", xlab = "", xlim = c(0,5), ylim = c(0,5)) 
   sp1 <- start_position[1]
   sp2 <- start_position[2]
-  np1 <- length * cos(direction)
-  np2 <- length * sin(direction)
+  np1 <- length * cos(direction) + sp1
+  np2 <- length * sin(direction) + sp2
+  #lines(c(sp1, np1), c(sp2, np2), type = "l")
+  #ep <- c(np1,np2)
   segments(sp1, sp2, np1, np2)
-  ep <- c(np1,np2)
-  return(ep) # you should return your endpoint here.
+  return(c(np1,np2))# you should return your endpoint here.
 }
-
+#turtle(start_position = c(0,0), direction = (pi/3), length = 5)
 # Question 25
 elbow <- function(start_position, direction, length)  {
-  
+  sec_line_start <- turtle(start_position, direction, length)
+  sec_line_dir <- direction - (pi/4) 
+  sec_line_len <- length * 0.95
+  sec_line <- turtle(sec_line_start, sec_line_dir, sec_line_len)
+  return(sec_line)
 }
-
+#elbow(start_position = c(0,0), direction = (pi/3), length = 5)
 # Question 26
 spiral <- function(start_position, direction, length)  {
-  
-  return("type your written answer here")
+  line_start <- turtle(start_position, direction, length)
+  line_dir <- direction - (pi/4) 
+  line_len <- length * 0.95
+  if (line_len < 0.01){
+    spiral(line_start, line_dir, line_len) 
+  }
+  return("Too much recursion, encountered Error: C stack usage  7971092 is too close to the limit")
 }
+#spiral(start_position = c(0,0), direction = (pi/3), length = 5)
 
-# Question 27
+#Question 27
 draw_spiral <- function()  {
   # clear any existing graphs and plot your graph within the R window
-  
+  graphics.off()
+  empty_pt <- c()
+  plot(empty_pt, ylab = "", xlab = "", xlim = c(0,15), ylim = c(-6,8))
+  spiral(start_position = c(0,0), direction = (pi/3), length = 5)
 }
 
 # Question 28
 tree <- function(start_position, direction, length)  {
-  
+  line_start <- turtle(start_position, direction, length)
+  line_dir_right <- direction - (pi/4) 
+  line_dir_left <- direction + (pi/4)
+  line_len <- length * 0.65
+  if (line_len < 0.01){
+    tree(line_start, line_dir_right, line_len) 
+    tree(line_start, line_dir_left, line_len)
+  }
 }
 
 draw_tree <- function()  {
   # clear any existing graphs and plot your graph within the R window
-
+  graphics.off()
+  empty_pt <- c()
+  plot(empty_pt, ylab = "", xlab = "", xlim = c(-4,15), ylim = c(-4,15))
+  tree(start_position = c(0,0), direction = (pi/3), length = 5)
 }
 
 # Question 29
 fern <- function(start_position, direction, length)  {
-  
+  line_start <- turtle(start_position, direction, length)
+  line_dir_left <- direction + (pi/4) 
+  line_dir_str <- direction
+  line_len_left <- length * 0.38
+  line_len_str <- length * 0.87
+  if (line_len_left <=0.002){
+    fern(line_start, line_dir_left, line_len_left) 
+    fern(line_start, line_dir_str, line_len_str)
+  }
 }
 
 draw_fern <- function()  {
   # clear any existing graphs and plot your graph within the R window
-
+  graphics.off()
+  empty_pt <- c()
+  plot(empty_pt, ylab = "", xlab = "", xlim = c(-4,35), ylim = c(-4,35))
+  fern(start_position = c(0,0), direction = (pi/3), length = 5)
 }
 
 # Question 30
 fern2 <- function(start_position, direction, length, dir)  {
-  
+  line_start <- turtle(start_position, direction, length)
+  line_dir_str <- direction
+  dir <- -dir
+  left_right <- direction + dir * (pi/4) 
+  line_len_lr <- length * 0.38
+  line_len_str <- length * 0.87
+  if (line_len_lr > 0.013){
+    fern2(line_start, left_right, line_len_lr,-dir) 
+    fern2(line_start, line_dir_str, line_len_str,dir)
+  }
 }
+
 draw_fern2 <- function()  {
   # clear any existing graphs and plot your graph within the R window
-
+  graphics.off()
+  empty_pt <- c()
+  plot(empty_pt, ylab = "", xlab = "", xlim = c(-4,25), ylim = c(-4,40))
+  fern2(start_position = c(0,0), direction = (pi/3), length = 5, -1)
 }
 
 # Challenge questions - these are optional, substantially harder, and a maximum of 16% is available for doing them.  
