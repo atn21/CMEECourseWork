@@ -3,8 +3,8 @@
 rm(list=ls()) # good practice 
 graphics.off()
 #source("/rds/general/user/atn21/home/HPC/atn21_HPC_2021_main.R")
-source("atn21_HPC_2021_main.R")
-iter <- as.numeric(Sys.getenv("PBS_ARRAY_INDEX"))
+source("atn21_HPC_2021_main.R")  # source file 
+iter <- as.numeric(Sys.getenv("PBS_ARRAY_INDEX")) #get iter to set community size
 if ((iter >= 1) & (iter <= 25)){
   size = 500
 }
@@ -18,7 +18,7 @@ if ((iter > 75) & (iter <= 100)){
   size = 5000
 }
 
-speciation_rate <- 0.0028133
+speciation_rate <- 0.0028133 
 wall_time <- 11.5*60
 output_file_name <- paste("Cluster_iter_no_",iter,".rda",sep ="")
 # call cluster_run function with personal speciation_rate = 0.0028133

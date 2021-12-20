@@ -136,17 +136,14 @@ question_12 <- function()  {
   graphics.off() # clear any existing graphs and plot your graph within the R window
   min <- neutral_time_series_speciation(init_community_min(100), 0.1, 200)
   max <- neutral_time_series_speciation(init_community_max(100), 0.1, 200)
-  x <- c(1:201)
   par(mar=c(5.1, 4.1, 4.1, 8.1), xpd=TRUE)
-  plot(x,max, main="Species richness over time", 
+  plot(max, main="Species richness over time", 
        ylab="Species Richness", xlab="Generations", 
-       col = "blue")
-  par(new = TRUE)
-  plot(x,min, main="Species richness over time", 
-       ylab="", xlab="", xaxt = "n", yaxt = "n", 
-       col = "red")
+       xlim = c(0, 200), ylim = c(0, 100), col = "blue")
+  #par(new = TRUE)
+  points(min, col = "red")
   legend("topright", inset=c(-0.2,0), legend = c("Max", "Min"), col = c("blue","red"), pch=1, cex=0.8)
-  return("Starting with minimum initial conditions results in higher species richnes than when starting with maximum initial condition. However, because the same speciation rate and generation length were used for both initial startign conditions, they both have similar patterns.")
+  return("Because the same speciation rate, community size, and generation length were used for both initial starting conditions, they both converge into the same equillibrium point. The introduction of speciation rate keeps the species richness above 1, unlike in question 8.")
 }
 
 # Question 13
@@ -214,6 +211,7 @@ question_16 <- function()  {
    )
  mean_min <- bin_min/100
  mean_max <- bin_max/100
+ #plot bar charts
  barplot(mean_min,
           main = "Mean species abundance distribution 
             at minimum possible number of species", cex.main=0.8, col="red")
@@ -221,18 +219,19 @@ question_16 <- function()  {
  barplot(mean_max,
           main = "Mean species abundance distribution 
                   at maximum possible number of species", cex.main=0.8, col="blue")
-  return("type your written answer here")
+  return("Initial condition does not matter. They both have the same speciation rate, generation length, community size so they share the same pattern.")
 }
 
 # Question 17
+#simulation run with high performance computing (HPC)
 cluster_run <- function(speciation_rate, size, wall_time, interval_rich, 
                         interval_oct, burn_in_generations, output_file_name)  {
-    community <- init_community_min(size)
+    community <- init_community_min(size) #initial conditions
     ab <- c() #time_series
     oc <- list() #octaves
-    wall_time <- wall_time*60
-    tm <- proc.time()[[3]]
-    i <- 1
+    wall_time <- wall_time*60 #run time
+    tm <- proc.time()[[3]] #start timer
+    i <- 1 #starting count for burn_in_generations
     while (proc.time()[[3]] - tm <= wall_time){
         community <- neutral_generation_speciation(community, speciation_rate)
         if (i %% interval_rich == 0 && i < burn_in_generations){
@@ -254,7 +253,9 @@ cluster_run <- function(speciation_rate, size, wall_time, interval_rich,
 
 # Question 20 
 process_cluster_results <- function()  {
+  #set directory of RDA files
   mydir <- "~/Documents/CMEECourseWork/HPC/RDA"
+  #list RDA files
   myfiles <- list.files(path=mydir, pattern="*.rda", full.names=TRUE)
   all_oc <- c()
   oc_500 <- c()
@@ -267,11 +268,13 @@ process_cluster_results <- function()  {
   c_5000 <- 0
   suppressWarnings(for (f in myfiles){
     load(f)
-    burn_in <- burn_in_generations/interval_oct
+    burn_in <- burn_in_generations/interval_oct #calculate how many octaves recorded during burn_in_generations
+    #calculate sum_vect for octaves in each rda file
     for (o in length(oc)){
       all_oc <- sum_vect(all_oc, oc[[o > burn_in]])
       oc_len <- length(all_oc)
     }
+    #save octaves into list according to community size
     if (size == 500){
       oc_500 <- sum_vect(oc_500, all_oc)
       c_500 <- c_500 + oc_len
@@ -289,6 +292,7 @@ process_cluster_results <- function()  {
       c_5000 <- c_5000 + oc_len
     }
   })
+  #mean octaves for each community size
   final_oc_500 <- oc_500/c_500
   final_oc_1000 <- oc_1000/c_1000
   final_oc_2500 <- oc_2500/c_2500
@@ -296,10 +300,8 @@ process_cluster_results <- function()  {
 }
 
 plot_cluster_results <- function()  {
-    # clear any existing graphs and plot your graph within the R window
-    # load combined_results from your rda file
-    # plot the graphs
-  graphics.off()
+  graphics.off()# clear any existing graphs and plot your graph within the R window
+  # plot the graphs
   par(mfrow = c(2,2))
   barplot(final_oc_500, main = "Community size 500",
           xlab = "Species abundance octaves",
@@ -328,13 +330,13 @@ plot_cluster_results <- function()  {
 # Question 21
 question_21 <- function()  {
   D <- log(8)/log(3)
-  return("8 self-similar pieces, each piece is 1/3 the size of the original piece")
+  return("There are 8 self-similar pieces, each piece is 1/3 the size of the original piece. Using the equation Dimesion = log(number of self-similar pieces)/log(magnification factor), the dimension is 1.8928, thereby identifying this object as the Sierpiński carpet.")
 }
 
 # Question 22
 question_22 <- function()  {
   D <- log(20)/log(3)
-  return("type your written answer here")
+  return("This object is a 3D cube with hollow cores. It takes 27 self-similar small cubes to make one big cube with three times the length of the small cube i.e. maginification factor is 3. As this object is hollow in the centre, we only needs 20 self-similar small cubes. Using the equation Dimesion = log(number of self-similar pieces)/log(magnification factor), the dimension is 2.7268, thereby identify this object as the Menger sponge.")
 }
 
 # Question 23
@@ -350,23 +352,27 @@ chaos_game <- function()  {
     x[2] <- x[2] + (rd[2]-x[2])/2
     points(x[1],x[2])
   }
-  return("Sierpiński triangle")
+  return("This is a scalene Sierpiński triangle, formed from 3 fixed points and 1 flexible point. This flexible point moves halfway towards one of three fixed points, the fixed point is chosen at random. The loop consists of 5000 iterations. ")
 }
 
 # Question 24
 turtle <- function(start_position, direction, length)  {
-  #plot(0, 0, ylab = "", xlab = "", xlim = c(0,5), ylim = c(0,5)) 
-  sp1 <- start_position[1]
-  sp2 <- start_position[2]
-  np1 <- length * cos(direction) + sp1
-  np2 <- length * sin(direction) + sp2
+  #draw a line of a given length from a given point
+  #(defined as a vector) and in a given direction
+  sp1 <- start_position[1] #starting point x
+  sp2 <- start_position[2] #starting point y
+  np1 <- length * cos(direction) + sp1 #end point x
+  np2 <- length * sin(direction) + sp2 #end point y
   segments(sp1, sp2, np1, np2, col = "#009E73")
-  return(c(np1,np2))# you should return your endpoint here.
+  return(c(np1,np2)) # return endpoint here.
 }
+#plot(0, 0, ylab = "", xlab = "", xlim = c(0,5), ylim = c(0,5)) 
 #turtle(start_position = c(0,0), direction = (pi/3), length = 5)
 
 # Question 25
 elbow <- function(start_position, direction, length)  {
+  # calls turtle twice to draw a pair of lines that
+  # join together with a given angle between them
   sec_line_start <- turtle(start_position, direction, length)
   sec_line_dir <- direction - (pi/4) 
   sec_line_len <- length * 0.95
@@ -377,26 +383,29 @@ elbow <- function(start_position, direction, length)  {
 
 # Question 26
 spiral <- function(start_position, direction, length)  {
+  #an iterative function that draws a spiral. Instead of calling turtle twice 
+  #to draw the first and second lines, spiral should call turtle to draw the first line 
+  #and then call itself spiral instead of turtle to draw the second line. 
   line_start <- turtle(start_position, direction, length)
   line_dir <- direction - (pi/4) 
   line_len <- length * 0.95
-  if (line_len > 0.01){
+  if (line_len > 0.01){ #set length to be > 0.01 to avoid error
     spiral(line_start, line_dir, line_len) 
   }
+  return("Due to too much recursion (calling the function from inside that function), available memory was used up, resulting in 'Error: C stack usage  7971092 is too close to the limit'")
 }
 
 #Question 27
 draw_spiral <- function()  {
-  # clear any existing graphs and plot your graph within the R window
-  graphics.off()
+  graphics.off() # clear any existing graphs and plot your graph within the R window
   empty_pt <- c()
   plot(empty_pt, ylab = "", xlab = "", xlim = c(0,15), ylim = c(-6,8))
   spiral(start_position = c(0,0), direction = (pi/3), length = 5)
-  print("Too much recursion, encountered Error: C stack usage  7971092 is too close to the limit")
 }
 
 # Question 28
 tree <- function(start_position, direction, length)  {
+  #call turtle once to use as start_position. Call tree twice, each time with different direction
   line_start <- turtle(start_position, direction, length)
   line_dir_right <- direction - (pi/4) 
   line_dir_left <- direction + (pi/4)
@@ -417,6 +426,7 @@ draw_tree <- function()  {
 
 # Question 29
 fern <- function(start_position, direction, length)  {
+  #draw one side of the fern
   line_start <- turtle(start_position, direction, length)
   line_dir_left <- direction + (pi/4) 
   line_dir_str <- direction
@@ -438,6 +448,7 @@ draw_fern <- function()  {
 
 # Question 30
 fern2 <- function(start_position, direction, length, dir)  {
+  #draw a full fern
   line_start <- turtle(start_position, direction, length)
   line_dir_str <- direction
   left_right <- direction + dir * (pi/4) 
@@ -532,7 +543,7 @@ Challenge_E <- function() {
     xe1[2] <- xe1[2] + (rde1[2]-xe1[2])/2
     points(xe1[1],xe1[2],col="#56B4E9")
   }
-  return("type your written answer here")
+  return("When point x lies outside the borders formed by the 3 fixed points, the scalene Sierpiński triangle still forms, just with some leftover points (green points on the graph). When the 3 fixed points form an equilateral triangle, the final reuslts is an equaliteral Sierpiński triangle. Starting wih 4 points does not form a fractal.")
 }
 
 # Challenge question F
@@ -540,7 +551,7 @@ Challenge_F <- function() {
   # clear any existing graphs and plot your graph within the R window
   graphics.off()
   x <- c(0.005, 0.013, 0.1)
-  co <- c("#009E73","#E69F00","#D55E00")
+  co <- c("#009E73","#E69F00","red")
   par(mfrow=c(1,3))
   for (i in 1:3){
     turtlef <- function(start_position, direction, length)  {
@@ -571,7 +582,7 @@ Challenge_F <- function() {
     }
     draw_fern2f() #merry christmas
   }
-  return("type your written answer here")
+  return("Varying the line length threshold changes how detailed the final drawing is. The smaller the threshold, the more lines are plotted. From left to right, line threshold of 0.005 results in the thickest leaf, thickness decreases as line threshold is raised.")
 
 }
 
