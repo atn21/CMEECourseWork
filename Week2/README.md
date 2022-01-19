@@ -6,6 +6,14 @@
 * results: contains the output of the programs. Currently empty. 
 * sandbox: contains miscellaneous files generated when testing the code. Nothing important.
 
+## Requirements
+
+Python 3.8.10
+
+Packages: 
+* pickle
+* re
+
 ## Files in code directory
 ### 1. basic_io1.py
 
@@ -95,7 +103,7 @@ Takes the DNA sequences from two (user input or default) fasta files and saves t
 
 Takes the DNA sequences from two (user input or default) files and saves all alignment with the highest score into a text file.
 
-### 23. oaks_debugme.py
+### 23. oaks_debugme_grp.py
 
 A bug prevents oaks from being found. The program is then debuged with doctest.
 

@@ -35,8 +35,8 @@ def even_or_odd(x=0):
         return "%d is Even!" % x
     return "%d is Odd!" % x
 
-#provide fucntions with arguments
 def main(argv): 
+    """provide fucntions with arguments"""
     print(even_or_odd(22))
     print(even_or_odd(33))
     return 0

@@ -31,13 +31,14 @@ rainfall = (('JAN',111.4),
             ('NOV',128.4),
             ('DEC',142.2),
            )
-#if rain was greater than 100mm
+
 def rainmore100(hundred):
+    """check if rain was greater than 100mm"""
     if hundred > 100:
         return hundred
 
-#if rain was less than 50mm
 def rainless50(fifty):
+    """check if rain was less than 50mm"""
     if fifty < 50:
         return fifty
 

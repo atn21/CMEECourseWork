@@ -53,6 +53,7 @@ def find_all_primes(x=22):
     return allprimes
       
 def main(argv):
+    """"Test all functions"""
     print(even_or_odd(22))
     print(even_or_odd(33))
     print(largest_divisor_five(120))
