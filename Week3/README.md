@@ -8,6 +8,10 @@
 
 ## Requirements
 
+GNU bash, version 5.0.17(1)-release
+
+TeX 3.14159265
+
 Python 3.8.10
 
 Python Packages: 
