@@ -22,7 +22,7 @@ Contains all coursework files.
 ### Week 5
 * Spatial Analyses and Geographic Information Systems (GIS)
 
-## Week 6
+### Week 6
 * Genomics and Bioinformatics
 
 ### Week 7
