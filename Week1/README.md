@@ -6,7 +6,14 @@
 * results: contains the output of the scripts. Currently empty. 
 * sandbox: contains miscellaneous files generated when testing the scripts. Nothing important.
 
-## Files in code directory
+## Requirements
+
+GNU bash, version 5.0.17(1)-release
+
+TeX 3.14159265 (TeX Live 2019/Debian)
+
+## List of scripts
+
 ### 1. UnixPrac1
 
 .txt file containing bash commands to perform on .fasta files.
@@ -55,21 +62,10 @@ Contains BibTex reference for the LaTex document in FirstExample.tex.
 
 Combines a LaTeX .tex file with a BibTeX file to create a pdf containing the first document and its citation. 
 
-## Files in data directory
+## Author
 
-### 4 .csv files: 
-* 1800.csv
-* 1801.csv
-* 1802.csv
-* 1803.csv
+An Nguyen
 
-### 3 .fasta files:
-* 407228326.fasta
-* 407228412.fasta
-* E.coli.fasta
+## Licensing
 
-### 1 .txt file:
-* spawannxs.txt
-
-### 1 .tif file:
-* example1.tif
+None
