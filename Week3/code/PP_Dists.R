@@ -13,6 +13,7 @@ require(tidyverse)
 
 MyDF <- read.csv("../data/EcolArchives-E089-51-D1.csv")
 
+#convert mg to g in Prey.mass and Predator.mass
 MyDF <- MyDF %>% mutate(Prey.mass = case_when(Prey.mass.unit == "mg" ~ Prey.mass / 1000, TRUE ~ Prey.mass))%>% mutate(Prey.mass.unit = case_when(Prey.mass.unit == "mg" ~ "g", TRUE ~ Prey.mass.unit))
 
 #test <- test %>% mutate(i1 = Col2 == 'C', 
@@ -22,6 +23,7 @@ MyDF <- MyDF %>% mutate(Prey.mass = case_when(Prey.mass.unit == "mg" ~ Prey.mass
 #test <- test %>% mutate(Col1 = ifelse(Col2 == 'C',  Col1 * 1000, Col1),
 #Col2 = ifelse(Col2 == 'C', "D", Col2))
 
+#distributions of predator mass by feeding interaction type
 pdf("../results/Pred_Subplots.pdf")
 par(mfcol=c(3,2)) #initialize multi-paneled plot
 for (t in unique(MyDF$Type.of.feeding.interaction)) {
@@ -34,6 +36,7 @@ for (t in unique(MyDF$Type.of.feeding.interaction)) {
 }
 dev.off()
 
+#distributions of prey mass by feeding interaction type
 pdf("../results/Prey_Subplots.pdf")
 par(mfcol=c(3,2)) #initialize multi-paneled plot
 for (t in unique(MyDF$Type.of.feeding.interaction)) {
@@ -46,6 +49,7 @@ for (t in unique(MyDF$Type.of.feeding.interaction)) {
 }
 dev.off()
 
+#distributions of the size ratio of prey mass to predator mass by feeding interaction type
 pdf("../results/SizeRatio_Subplots.pdf")
 par(mfcol=c(3,2)) #initialize multi-paneled plot
 for (t in unique(MyDF$Type.of.feeding.interaction)) {
@@ -58,6 +62,7 @@ for (t in unique(MyDF$Type.of.feeding.interaction)) {
 }
 dev.off()
 
+#calculate and save (log) mean and median predator mass, prey mass and predator-prey size-ratios
 mmpred <- ddply(MyDF, ~ Type.of.feeding.interaction, summarize,
     Predator_mass_mean = mean(log(Predator.mass)),
     Predator_mass_median = median(log(Predator.mass)),

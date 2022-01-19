@@ -4,7 +4,6 @@
 # Perform regression analysis and save the corresponding regression results a csv file.
 rm(list = ls())
 
-require(ggplot2)
 require(tidyverse)
 
 MyDF <- read.csv("../data/EcolArchives-E089-51-D1.csv")

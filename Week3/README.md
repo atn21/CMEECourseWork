@@ -1,12 +1,30 @@
 # Week 3 Coursework 
 
-## Content
-* code: contains the R scripts of this week. Find detailed content list below. 
+## Contents
+* code: contains the R and python scripts of this week. Find detailed content list below. 
 * data: contains the data for the scripts. Find detailed content list below.
 * results: contains the output of the scripts. Currently empty. 
 * sandbox: contains miscellaneous files generated when testing the code. Nothing important.
 
-## Files in code directory
+## Requirements
+
+Python 3.8.10
+
+Python Packages: 
+* os
+* csv
+* sys
+* numpy
+
+R version 4.1.2
+
+R Packages:
+* plyr
+* tidyverse
+* map
+* reshape2
+
+## List of scripts
 
 ### 1. basic_io.R
 
@@ -78,7 +96,7 @@ Calculate the correlation coefficients between temperature and time through the 
 
 ### 18. Florida_warming.tex
 
-Compiles the report which contains the output of Florida_warming.R into a pdf.
+Contains the report for Florida_warming.R, written in LaTeX.
 
 ### 19. DataWrang.R
 
@@ -112,25 +130,34 @@ Perform regression analysis and save the corresponding regression results a csv 
 
 A world map which has data in GPDD superimposed on top.
 
-### 27. Florida_warming_compile.sh
+### 27. TAutoCorr.R
 
-Compile the LaTeX pdf for Florida_warming. 
+Calculate the correlation coefficients between temperature of successive years in Florida.
 
-### 28. Florida_warming_bibli.bib
+### 28. TAutoCorr.tex
 
-Bibliography for the Florida_warming.tex file. 
+Contains the report for TAutoCorr.R, written in LaTeX.
 
-## Files in data directory
+### 29. CompileLaTeX.sh
 
-### 4 .csv files
-* colArchives-E089-51-D1.csv
-* PoundHillData.csv
-* trees.csv
-* PoundHillMetaData.csv
+Convert the TAutoCorr.tex
 
-### 2 .RData files
-* GPDDFiltered.RData
-* KeyWestAnnualMeanTemperature.RData 
+### 30. get_TreeHeight.R
 
-### 1 .txt file
-* Results.txt
+Takes a csv file name from the command line and outputs the result to a file just like TreeHeight.R.
+
+### 31. get_TreeHeight.py
+
+The Python version of get_TreeHeight.R, it also takes a csv file name from the command line and outputs the result to a file just like TreeHeight.R.
+
+### 32. run_get_TreeHeight.sh
+
+A bash script for running *get_TreeHeight.py* and *get_TreeHeight.R*. 
+
+## Author
+
+An Nguyen
+
+## Licensing
+
+None

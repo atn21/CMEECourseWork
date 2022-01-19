@@ -24,6 +24,3 @@ readfile$Tree.Height.m <- TreeHeight(readfile$Angle.degrees, readfile$Distance.m
 
 #save all data to csv file in results/
 write.csv(readfile, "../results/TreeHts.csv", row.names=FALSE)
-
-
-

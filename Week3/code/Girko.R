@@ -33,9 +33,7 @@ names(ellDF) <- c("Real", "Imaginary") # rename the columns
 
 # plot the eigenvalues
 p <- ggplot(eigDF, aes(x = Real, y = Imaginary))
-p <- p +
-  geom_point(shape = I(3)) +
-  theme(legend.position = "none")
+p <- p + geom_point(shape = I(3)) + theme(legend.position = "none")
 
 # now add the vertical and horizontal line
 p <- p + geom_hline(aes(yintercept = 0))

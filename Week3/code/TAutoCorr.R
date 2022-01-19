@@ -1,38 +1,32 @@
-#clear workspace
 rm(list=ls())
-
-#load data
+require(ggplot2)
 load("../data/KeyWestAnnualMeanTemperature.RData")
-
-#correlation coefficient of temperature between successive years
-ce <- cor(ats$Temp[1:99],ats$Temp[2:100])
-
-#calculate possible combination of years and temperature
-#100 samples, 4950 possible combinations
-sampletime <- 100 * (100 -1)/2
-
-#shuffle temperature, each time randomly 
-#re-assigning temperatures to year
-set.seed(18)
-shuffle_cor <- function(x) {
-  x <- sample(x)
-  return (cor(x[1:99], x[2:100]))
+plot<-ggplot(data=ats,mapping = aes(x=Year,y=Temp))+geom_point()
+ggsave("../results/Auto_Cor_Florida_Temp.png",plot,,width = 5.03, height = 3.08, units = "in")
+yeartempall<-ats$Temp
+yeartemp_n<-ats$Temp[1:99]
+yeartemp_n1<-ats$Temp[2:100]
+yearpair<-data.frame(yeartemp_n,yeartemp_n1)
+cor<-cor(yearpair$yeartemp_n,yearpair$yeartemp_n1)
+corlist<-rep(NA,99999)
+for(i in 1:100000){
+  shuffle<-sample(yeartempall,99,replace=FALSE)
+  corlist[i]<-cor(yeartemp_n,shuffle)
 }
-
-#repeat the shuffling 19900 times
-calfraction <- sapply(1:sampletime, function(i) shuffle_cor(ats$Temp))
-
-# histogram to compare coefficient correlations
-pdf("../results/TAutoCorrplot.pdf")
-hist(calfraction, 
-     xlim = c(-0.6, 0.6),
-     xlab = "Correlation coefficients of random sample",
-     main = NULL)
-abline(v = ce, col="blue", lwd=3, lty=2)
-text(0.19, 800, "Original correlation coefficient 
-     \n of temperature between succesive years: 0.326", cex = 0.65, col="blue")
-dev.off()
-
-#calculate approximate, asymptotic p-value (what fraction of 
-#the random correlation coefficients were greater than the observed one 
-p <- sum(calfraction > ce)/length(calfraction)
+count<-0
+for(i in 1:length(corlist)){
+  if(corlist[i]>cor){
+    count<-count+1
+  }
+}
+fraction<-count/length(corlist)
+cordata<-data.frame(corlist)
+g<- ggplot(cordata,aes(x=corlist))+
+  geom_histogram(position = "identity",fill="lightcoral",color="black")+
+  xlab("correlation coefficient")+
+  ylab("Count")+
+  geom_vline(xintercept = cor,linetype="twodash",color="blue")+
+  annotate(geom = "text",fontface="bold",color="blue",
+           x=0.3,y=9000,
+           label="observed value = 0.326",size = 3)
+ggsave("../results/Auto_cor_Florida_histogram.png",g,width = 5.03, height = 3.08, units = "in")
