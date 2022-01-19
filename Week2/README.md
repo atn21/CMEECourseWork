@@ -13,6 +13,9 @@ Python 3.8.10
 Packages: 
 * pickle
 * re
+* csv
+* sys
+* doctest
 
 ## Files in code directory
 ### 1. basic_io1.py
@@ -107,12 +110,11 @@ Takes the DNA sequences from two (user input or default) files and saves all ali
 
 A bug prevents oaks from being found. The program is then debuged with doctest.
 
-## Files in data directory
+## Author
 
-### 5 .csv files: 
-* align_seqs_data.csv
-* bodymass.csv
-* JustOaksData.csv
-* testcsv.csv
-* TestOaksData.csv
+An Nguyen
+
+## Licensing
+
+None
 
