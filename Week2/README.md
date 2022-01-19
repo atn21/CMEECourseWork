@@ -1,6 +1,6 @@
 # Week 2 Coursework 
 
-## Content
+## Contents
 * code: contains the python programs of this week. Find detailed content list below. 
 * data: contains the data for the programs. Find detailed content list below.
 * results: contains the output of the programs. Currently empty. 
@@ -17,7 +17,7 @@ Packages:
 * sys
 * doctest
 
-## Files in code directory
+## List of scripts
 ### 1. basic_io1.py
 
 Open test.txt from Week2/sandbox and loop through all lines in the file.
