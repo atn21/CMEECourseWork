@@ -14,10 +14,30 @@ Contains all coursework files.
 * Biological Computing in R
 * Data Management and Visualization
 
+## Week 4
+* Statistics in R
+
+## Week 5
+* Spatial Analyses and Geographic Information Systems (GIS)
+
+## Week 6
+* Genomics and Bioinformatics
+
 ## Week 7
 * Biological Computing in Python II
 * Introduction to Jupyter
 * Data analyses with Python & Jupyter
 
-## Mini Project (Week 8-9)
-* CMEE Mini Project
+## Week 8 - 9 
+* Mini Project
+
+## Week 10
+* High Performance Computing
+
+## Author
+
+An Nguyen
+
+## Licensing
+
+None
