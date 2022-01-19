@@ -1,6 +1,6 @@
 # Week 1 Coursework 
 
-## Content
+## Contents
 * code: contains the bash scripts of this week. Find detailed content list below. 
 * data: contains the data for the scripts. Find detailed content list below.
 * results: contains the output of the scripts. Currently empty. 
@@ -10,7 +10,7 @@
 
 GNU bash, version 5.0.17(1)-release
 
-TeX 3.14159265 (TeX Live 2019/Debian)
+TeX 3.14159265
 
 ## List of scripts
 
