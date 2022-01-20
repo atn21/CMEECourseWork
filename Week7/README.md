@@ -8,9 +8,7 @@
 
 ## Requirements
 
-1. Python 3.8.10
-
-Python Modules: 
+1. Python 3.8.10:
 * subprocess
 * re
 * urllib3
