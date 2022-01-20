@@ -8,9 +8,7 @@
 
 ## Requirements
 
-Python 3.8.10
-
-Python Modules: 
+Python 3.8.10:
 * pickle
 * re
 * csv
