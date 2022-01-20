@@ -6,7 +6,25 @@
 * results: contains the output of the scripts. Currently empty. 
 * sandbox: contains miscellaneous files generated when testing the code. Nothing important.
 
-## Files in code directory
+## Requirements
+
+Python 3.8.10
+
+Python Modules: 
+* subprocess
+* re
+* urllib3
+* csv
+* sys
+* doctest
+* scipy.integrate
+* matplotlib.pylab
+* numpy
+* timeit
+
+Jupyter Notebook 6.4.6
+
+## List of scripts
 
 ### 1. LV1.py
 
@@ -44,9 +62,10 @@ Use the **timeit** module to figure out what is the best way to do something spe
 
 A bug prevents oaks from being found. The program is then debuged with doctest.
 
-## Files in data directory
+## Author
 
-### 2 .csv files: 
-* JustOaksData.csv
-* TestOaksData.csv
+An Nguyen
 
+## Licensing
+
+None
