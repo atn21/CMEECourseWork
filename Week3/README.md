@@ -14,7 +14,7 @@ TeX 3.14159265
 
 Python 3.8.10
 
-Python Packages: 
+Python Modules: 
 * os
 * csv
 * sys
