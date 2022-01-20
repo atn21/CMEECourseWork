@@ -6,6 +6,23 @@
 * results: contains the output of the scripts.
 * sandbox: contains miscellaneous files while testing the scripts. Nothing important.
 
+## Requirements
+
+1. GNU bash, version 5.0.17(1)-release
+
+2. TeX 3.14159265
+
+3. Python 3.8.10:
+* panda
+* warning
+* numpy
+
+4. R version 4.1.2:
+* minpack.lm
+* tidyverse (dplyr and ggplot2)
+* qpcR
+* reshape2
+
 ## List of scripts
 
 ### 1. Data preparation script: data_prep.py
