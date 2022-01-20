@@ -49,5 +49,4 @@ dev.off()
 
 #calculate approximate, asymptotic p-value (what fraction of 
 #the random correlation coefficients were greater than the observed one 
-p <- sum(calfraction > ce)/length(calfraction)
-
+p <- sum(calfraction >= ce)/length(calfraction)
