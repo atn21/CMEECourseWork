@@ -12,17 +12,13 @@
 
 2. TeX 3.14159265
 
-3. Python 3.8.10
-
-Python Modules: 
+3. Python 3.8.10:
 * os
 * csv
 * sys
 * numpy
 
-4. R version 4.1.2
-
-R Packages:
+4. R version 4.1.2:
 * plyr
 * tidyverse
 * map
