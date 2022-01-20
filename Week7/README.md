@@ -1,6 +1,6 @@
 # Week 7 Coursework 
 
-## Content
+## Contents
 * code: contains the python scripts of this week. Find detailed content list below. 
 * data: contains the data for the scripts. 
 * results: contains the output of the scripts. Currently empty. 
@@ -8,7 +8,7 @@
 
 ## Requirements
 
-Python 3.8.10
+1. Python 3.8.10
 
 Python Modules: 
 * subprocess
@@ -22,7 +22,7 @@ Python Modules:
 * numpy
 * timeit
 
-Jupyter Notebook 6.4.6
+2. Jupyter Notebook 6.4.6
 
 ## List of scripts
 

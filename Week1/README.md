@@ -8,9 +8,9 @@
 
 ## Requirements
 
-GNU bash, version 5.0.17(1)-release
+1. GNU bash, version 5.0.17(1)-release
 
-TeX 3.14159265
+2. TeX 3.14159265
 
 ## List of scripts
 
