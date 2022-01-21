@@ -20,7 +20,9 @@
 * numpy
 * timeit
 
-2. Jupyter Notebook 6.4.6
+2. R version 4.1.2:
+
+3. Jupyter Notebook 6.4.6
 
 ## List of scripts
 
