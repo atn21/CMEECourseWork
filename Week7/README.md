@@ -20,7 +20,7 @@
 * numpy
 * timeit
 
-2. R version 4.1.2:
+2. R version 4.1.2
 
 3. Jupyter Notebook 6.4.6
 
